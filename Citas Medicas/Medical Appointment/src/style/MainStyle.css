@@ -22,6 +22,7 @@
 #PaneHome{
     -fx-background-image: url("../image/paneLogin.jpg");
     -fx-background-repeat: stretch;
+
     /*-fx-background-position: center center;*/
 }
 
