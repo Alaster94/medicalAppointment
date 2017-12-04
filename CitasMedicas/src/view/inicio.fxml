@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.effect.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="PaneHome" prefHeight="787.0" prefWidth="1227.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.inicioController">
+   <children>
+      <JFXButton fx:id="btnCitas" contentDisplay="TOP" layoutX="143.0" layoutY="255.0" onAction="#actionCitas" text="CITAS" textFill="#fcf8f8" wrapText="true">
+         <graphic>
+            <AnchorPane fx:id="Pane41" prefHeight="165.0" prefWidth="189.0" styleClass="menus">
+               <children>
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="135.0" prefHeight="48.0" prefWidth="124.0" text="Gestión de Citas" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font name="Roboto Medium" size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="101.0" fitWidth="109.0" layoutX="41.0" layoutY="29.0">
+                     <image>
+                        <Image url="@../icon/icons8_Event_Accepted_Tentatively_96px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+      <Pane fx:id="homePane" layoutX="188.0" layoutY="44.0" prefHeight="88.0" prefWidth="1019.0">
+         <children>
+            <Label layoutX="77.0" layoutY="23.0" prefHeight="42.0" prefWidth="500.0" style="-fx-border-width: 0 0 3 15; -fx-border-color: #298DC5;" text="APPOINMENTS SYSTEM" textFill="#f0f0f5">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </Label>
+            <Label text="Label" />
+            <Label text="Label" />
+            <Label text="Label" />
+         </children>
+      </Pane>
+      <ImageView fitHeight="125.0" fitWidth="148.0" layoutX="65.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/sidePic.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnPacientes" contentDisplay="TOP" layoutX="396.0" layoutY="258.0" onAction="#actionPacientes" text="PACIENTES" textFill="#fcf8f8" wrapText="true">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <AnchorPane fx:id="Pane412" prefHeight="165.0" prefWidth="189.0" styleClass="menus">
+               <children>
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="135.0" prefHeight="48.0" prefWidth="124.0" text="Gestión de Pacientes" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font name="Roboto Medium" size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="45.0" layoutY="35.0">
+                     <image>
+                        <Image url="@../icon/icons8_Nurse_Call_100px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnEstadoCitas" contentDisplay="TOP" layoutX="648.0" layoutY="258.0" onAction="#actionEstadoCitas" text="ESTADO DE CITAS" textFill="#fcf8f8" wrapText="true">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <AnchorPane fx:id="Pane411" prefHeight="165.0" prefWidth="189.0" styleClass="menus">
+               <children>
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="135.0" prefHeight="48.0" prefWidth="124.0" text="Manejo del estado de las citas" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font name="Roboto Medium" size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="102.0" fitWidth="114.0" layoutX="36.0" layoutY="33.0">
+                     <image>
+                        <Image url="@../icon/icons8_Event_Accepted_96px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnCalendario" contentDisplay="TOP" layoutX="902.0" layoutY="258.0" onAction="#actionCalendario" text="CALENDARIO" textFill="#fcf8f8" wrapText="true">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <AnchorPane fx:id="Pane413" prefHeight="165.0" prefWidth="189.0" styleClass="menus">
+               <children>
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="135.0" prefHeight="48.0" prefWidth="124.0" text="Vista de Calendario" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font name="Roboto Medium" size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="101.0" fitWidth="107.0" layoutX="43.0" layoutY="37.0">
+                     <image>
+                        <Image url="@../icon/icons8_Calendar_96px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnReportes" contentDisplay="TOP" layoutX="276.0" layoutY="516.0" onAction="#actionReportes" text="REPORTES" textFill="#fcf8f8" wrapText="true">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <AnchorPane fx:id="Pane4131" prefHeight="165.0" prefWidth="189.0" styleClass="menus">
+               <children>
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="135.0" prefHeight="48.0" prefWidth="124.0" text="Reportes de citas" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font name="Roboto Medium" size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="47.0" layoutY="32.0">
+                     <image>
+                        <Image url="@../icon/icons8_Report_Card_96px.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+      </JFXButton>
+      <JFXButton fx:id="btnUsuarios" contentDisplay="TOP" layoutX="524.0" layoutY="516.0" onAction="#actionUsuarios" text="USUARIOS" textFill="#fcf8f8" wrapText="true">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <AnchorPane fx:id="Pane41311" prefHeight="165.0" prefWidth="189.0" styleClass="menus">
+               <children>
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="135.0" prefHeight="48.0" prefWidth="124.0" text="Gestión de Usuarios con Acceso al Sistema" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font name="Roboto Medium" size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="47.0" layoutY="39.0">
+                     <image>
+                        <Image url="@../icon/icons8_Add_User_Group_Man_Man_96px_1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+      </JFXButton>
+      <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="408.0" layoutY="166.0" prefHeight="48.0" prefWidth="222.0" text="Bienvenido(a), ">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <Label alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="629.0" layoutY="168.0" prefHeight="48.0" prefWidth="222.0" text="Alaster Erazo">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgExit" fitHeight="61.0" fitWidth="61.0" layoutX="1054.0" layoutY="160.0">
+         <image>
+            <Image url="@../icon/icons8_Shutdown_48px_1.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <effect>
+            <Glow />
+         </effect>
+      </ImageView>
+      <JFXButton fx:id="btnMedicos" contentDisplay="TOP" layoutX="769.0" layoutY="516.0" onAction="#actionMedicos" text="Medicos" textFill="#fcf8f8" wrapText="true">
+         <effect>
+            <Bloom />
+         </effect>
+         <font>
+            <Font size="18.0" />
+         </font>
+         <graphic>
+            <AnchorPane fx:id="Pane413111" prefHeight="165.0" prefWidth="189.0" styleClass="menus">
+               <children>
+                  <Label alignment="CENTER" layoutX="33.0" layoutY="135.0" prefHeight="48.0" prefWidth="124.0" text="Gestion de Medicos" textAlignment="CENTER" textFill="WHITE" textOverrun="CLIP" wrapText="true">
+                     <font>
+                        <Font name="Roboto Medium" size="11.0" />
+                     </font>
+                  </Label>
+                  <ImageView layoutX="47.0" layoutY="39.0">
+                     <image>
+                        <Image url="@../icon/icons8_Add_User_Group_Man_Man_96px_1.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </graphic>
+      </JFXButton>
+   </children>
+</AnchorPane>

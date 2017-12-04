@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="645.0" prefWidth="620.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.newPacienteController">
+   <children>
+      <Pane prefHeight="76.0" prefWidth="620.0" styleClass="note">
+         <children>
+            <Label layoutX="72.0" layoutY="19.0" styleClass="title-text" text="REGISTRO DE NUEVO PACIENTE" />
+         </children>
+      </Pane>
+      <Pane layoutY="74.0" prefHeight="629.0" prefWidth="620.0" styleClass="body">
+         <children>
+            <DatePicker fx:id="dpFechaIngreso" layoutX="46.0" layoutY="266.0" prefHeight="31.0" prefWidth="274.0" promptText="Fecha Ingreso" />
+            <Button layoutX="174.0" layoutY="561.0" mnemonicParsing="false" onAction="#registerPaciente" text="Registrar">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-search" />
+               </styleClass>
+            </Button>
+            <Button layoutX="335.0" layoutY="561.0" mnemonicParsing="false" onAction="#cancelPaciente" text="Cancelar">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-remove" />
+               </styleClass>
+            </Button>
+            <JFXTextField fx:id="txtIdentidadPaciente" labelFloat="true" layoutX="46.0" layoutY="48.0" prefHeight="29.0" prefWidth="519.0" promptText="Escriba el Numero de Identidad" />
+            <JFXTextField fx:id="txtNombrePaciente" labelFloat="true" layoutX="46.0" layoutY="113.0" prefHeight="29.0" prefWidth="519.0" promptText="Nombre Paciente" />
+            <JFXTextField fx:id="txtTelefonoPaciente" labelFloat="true" layoutX="46.0" layoutY="371.0" prefHeight="29.0" prefWidth="519.0" promptText="TelefonoPaciente" />
+            <JFXTextField fx:id="txtApellidoPaciente" labelFloat="true" layoutX="46.0" layoutY="170.0" prefHeight="29.0" prefWidth="519.0" promptText="Apellido Paciente" />
+            <JFXTextField fx:id="txtDireccionPaciente" labelFloat="true" layoutX="46.0" layoutY="319.0" prefHeight="29.0" prefWidth="519.0" promptText="Direccion Paciente" />
+            <JFXTextField fx:id="txtEmailPaciente" labelFloat="true" layoutX="46.0" layoutY="426.0" prefHeight="29.0" prefWidth="519.0" promptText="Email Paciente" />
+            <HBox layoutX="120.0" layoutY="213.0" prefHeight="37.0" prefWidth="286.0" spacing="20.0">
+               <padding>
+                  <Insets top="8.0" />
+               </padding>
+               <children>
+                  <JFXRadioButton fx:id="rbtMasculino" text="Masculino">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="GrupoGenero" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="rbtFemenino" text="Femenino" toggleGroup="$GrupoGenero" />
+               </children>
+            </HBox>
+            <Label layoutX="46.0" layoutY="221.0" text="Genero:" />
+            <JFXComboBox fx:id="cmbMedico" labelFloat="true" layoutX="46.0" layoutY="479.0" prefHeight="31.0" prefWidth="519.0" promptText="Medico Asignado" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

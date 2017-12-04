@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="medicalAppointment@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="medicalappointment">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="crud"/>
+    <schema id="4" parent="1" name="db_alumnos"/>
+    <schema id="5" parent="1" name="genus"/>
+    <schema id="6" parent="1" name="information_schema"/>
+    <schema id="7" parent="1" name="mydb"/>
+    <schema id="8" parent="1" name="mysql"/>
+    <schema id="9" parent="1" name="performance_schema"/>
+    <schema id="10" parent="1" name="phpmyadmin"/>
+    <schema id="11" parent="1" name="pmart"/>
+    <schema id="12" parent="1" name="test"/>
+    <schema id="13" parent="1" name="uiustudentrecordsystem"/>
+    <schema id="14" parent="1" name="users"/>
+    <schema id="15" parent="1" name="usuarios"/>
+    <schema id="16" parent="1" name="ventas"/>
+    <schema id="17" parent="1" name="world"/>
+    <schema id="18" parent="1" name="your_company"/>
+    <table id="19" parent="2" name="areas"/>
+    <table id="20" parent="2" name="citas"/>
+    <table id="21" parent="2" name="medicos"/>
+    <table id="22" parent="2" name="pacientes"/>
+    <table id="23" parent="2" name="tipousuario"/>
+    <table id="24" parent="2" name="usuarios"/>
+    <column id="25" parent="19" name="idAreas">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="26" parent="19" name="nombreArea">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="27" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idAreas</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="28" parent="20" name="idCita">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="29" parent="20" name="asunto">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="30" parent="20" name="fecha">
+      <Position>3</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="31" parent="20" name="nota">
+      <Position>4</Position>
+      <DataType>varchar(450)|0</DataType>
+    </column>
+    <column id="32" parent="20" name="diagnostico">
+      <Position>5</Position>
+      <DataType>varchar(450)|0</DataType>
+    </column>
+    <column id="33" parent="20" name="sintomas">
+      <Position>6</Position>
+      <DataType>varchar(450)|0</DataType>
+    </column>
+    <column id="34" parent="20" name="medicamentos">
+      <Position>7</Position>
+      <DataType>varchar(400)|0</DataType>
+    </column>
+    <column id="35" parent="20" name="estadoCita">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="36" parent="20" name="estadoPago">
+      <Position>9</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="37" parent="20" name="pacientes_idPacientes">
+      <Position>10</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="38" parent="20" name="fk_citas_pacientes_idx">
+      <ColNames>pacientes_idPacientes</ColNames>
+    </index>
+    <key id="39" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idCita</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="40" parent="20" name="fk_citas_pacientes">
+      <ColNames>pacientes_idPacientes</ColNames>
+      <RefSchemaName>medicalappointment</RefSchemaName>
+      <RefTableName>pacientes</RefTableName>
+      <RefColNames>idPacientes</RefColNames>
+    </foreign-key>
+    <column id="41" parent="21" name="idMedicos">
+      <Position>1</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="42" parent="21" name="nombreDoctor">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="43" parent="21" name="apellidoDoctor">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="44" parent="21" name="direccion">
+      <Position>4</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="45" parent="21" name="email">
+      <Position>5</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="46" parent="21" name="telefono">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="47" parent="21" name="areas_idAreas">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="48" parent="21" name="fk_medicos_areas1_idx">
+      <ColNames>areas_idAreas</ColNames>
+    </index>
+    <key id="49" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idMedicos</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="50" parent="21" name="fk_medicos_areas1">
+      <ColNames>areas_idAreas</ColNames>
+      <RefSchemaName>medicalappointment</RefSchemaName>
+      <RefTableName>areas</RefTableName>
+      <RefColNames>idAreas</RefColNames>
+    </foreign-key>
+    <column id="51" parent="22" name="idPacientes">
+      <Position>1</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="52" parent="22" name="nombrePaciente">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="53" parent="22" name="apellidoPaciente">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="54" parent="22" name="genero">
+      <Position>4</Position>
+      <DataType>varchar(13)|0</DataType>
+    </column>
+    <column id="55" parent="22" name="fechaNacimiento">
+      <Position>5</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="56" parent="22" name="direccion">
+      <Position>6</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="57" parent="22" name="email">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="58" parent="22" name="telefono">
+      <Position>8</Position>
+      <DataType>varchar(13)|0</DataType>
+    </column>
+    <column id="59" parent="22" name="medicos_idMedicos">
+      <Position>9</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="60" parent="22" name="fk_pacientes_medicos1_idx">
+      <ColNames>medicos_idMedicos</ColNames>
+    </index>
+    <key id="61" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idPacientes</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="62" parent="22" name="fk_pacientes_medicos1">
+      <ColNames>medicos_idMedicos</ColNames>
+      <RefSchemaName>medicalappointment</RefSchemaName>
+      <RefTableName>medicos</RefTableName>
+      <RefColNames>idMedicos</RefColNames>
+    </foreign-key>
+    <column id="63" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="64" parent="23" name="nombre">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <key id="65" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="66" parent="24" name="idUsuarios">
+      <Position>1</Position>
+      <DataType>varchar(13)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="67" parent="24" name="nombres">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="68" parent="24" name="apellidos">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="69" parent="24" name="birthDate">
+      <Position>4</Position>
+      <DataType>date|0</DataType>
+    </column>
+    <column id="70" parent="24" name="telefono">
+      <Position>5</Position>
+      <DataType>varchar(8)|0</DataType>
+    </column>
+    <column id="71" parent="24" name="direccion">
+      <Position>6</Position>
+      <DataType>varchar(60)|0</DataType>
+    </column>
+    <column id="72" parent="24" name="email">
+      <Position>7</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="73" parent="24" name="usuario">
+      <Position>8</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="74" parent="24" name="password">
+      <Position>9</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="75" parent="24" name="estado">
+      <Position>10</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="76" parent="24" name="tipoUsuario_id">
+      <Position>11</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="77" parent="24" name="fk_usuarios_tipoUsuario1_idx">
+      <ColNames>tipoUsuario_id</ColNames>
+    </index>
+    <key id="78" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>idUsuarios</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="79" parent="24" name="fk_usuarios_tipoUsuario1">
+      <ColNames>tipoUsuario_id</ColNames>
+      <RefSchemaName>medicalappointment</RefSchemaName>
+      <RefTableName>tipousuario</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>
