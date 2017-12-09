@@ -68,7 +68,7 @@ public class inicioController implements Initializable {
     public void actionReportes(ActionEvent actionEvent) {
     }
 
-    public void actionUsuarios(ActionEvent actionEvent){
+    public void actionUsuarios(ActionEvent actionEvent) {
         Stage users = new Stage();
         users.setResizable(false);
         try {
@@ -84,7 +84,23 @@ public class inicioController implements Initializable {
 
     }
 
-    public void setImgExit(){
+    public void setImgExit() {
+
+    }
+
+    public void actionPacientes(ActionEvent actionEvent) {
+        Stage users = new Stage();
+        users.setResizable(false);
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../view/pacienteee.fxml"));
+            users.initModality(Modality.APPLICATION_MODAL);
+            users.initOwner((Stage) ((Button) actionEvent.getSource()).getScene().getWindow());
+            Scene scene = new Scene(root);
+            users.setScene(scene);
+            users.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
