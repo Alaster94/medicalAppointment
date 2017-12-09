@@ -32,12 +32,12 @@ public class pacientesModel {
         Connection connection = new DBConnection().getConnection();
         List<listPacientes> pacientes = new ArrayList<>();
         String sqll = "SELECT idPacientes, nombrePaciente,apellidoPaciente, fechaNacimiento, telefono, email FROM pacientes where idPacientes LIKE '%" + nombrePaciente + "%'"
-                + "UNION SELECT idPacientes, nombrePaciente,apellidoPaciente, fechaNacimiento, telefono, email FROM pacientes where nombrePaciente LIKE '%" + nombrePaciente +"%'"
-                + "UNION SELECT idPacientes, nombrePaciente,apellidoPaciente, fechaNacimiento, telefono, email FROM pacientes where apellidoPaciente LIKE '%" + nombrePaciente +"%'";
+                + "UNION SELECT idPacientes, nombrePaciente,apellidoPaciente, fechaNacimiento, telefono, email FROM pacientes where nombrePaciente LIKE '%" + nombrePaciente + "%'"
+                + "UNION SELECT idPacientes, nombrePaciente,apellidoPaciente, fechaNacimiento, telefono, email FROM pacientes where apellidoPaciente LIKE '%" + nombrePaciente + "%'";
         try {
             PreparedStatement stat = connection.prepareStatement(sqll);
             ResultSet result = stat.executeQuery();
-            while (result.next()){
+            while (result.next()) {
                 listPacientes paciente = new listPacientes();
                 paciente.setIdentidad(result.getString("idPacientes"));
                 paciente.setNombre(result.getString("nombrePaciente"));
@@ -67,7 +67,7 @@ public class pacientesModel {
         try {
             PreparedStatement statement = connection1.prepareStatement(sql);
             ResultSet resultSet = statement.executeQuery();
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 listPacientes consPaciente = new listPacientes();
                 consPaciente.setIdentidad(resultSet.getString("idPacientes"));
                 consPaciente.setNombre(resultSet.getString("nombrePaciente"));
@@ -111,10 +111,11 @@ public class pacientesModel {
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new  RuntimeException(e);
+            throw new RuntimeException(e);
         }
 
     }
+
     public void eliminar(String idPaciente) throws SQLException, ClassNotFoundException {
         Connection connection = new DBConnection().getConnection();
         String sql = "DELETE FROM pacientes WHERE idPacientes = ?";
@@ -125,7 +126,7 @@ public class pacientesModel {
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new  RuntimeException(e);
+            throw new RuntimeException(e);
         }
 
     }
@@ -148,11 +149,10 @@ public class pacientesModel {
             statement.close();
         } catch (SQLException e) {
             e.printStackTrace();
-            throw new  RuntimeException(e);
+            throw new RuntimeException(e);
         }
 
     }
-
 
 
 }

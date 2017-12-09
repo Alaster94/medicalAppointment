@@ -17,7 +17,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class nuevoUsuarioController implements Initializable{
+public class nuevoUsuarioController implements Initializable {
     @FXML
     private CheckBox cbxEstado;
 
@@ -51,7 +51,7 @@ public class nuevoUsuarioController implements Initializable{
     private ResultSet rs = null;
     private ObservableList<usersList> data;
 
-    public void registerAction(ActionEvent event){
+    public void registerAction(ActionEvent event) {
 
         String sql = "INSERT INTO usuarios(nombres,apellidos,birthDate,telefono,direccion,email,usuario,password,estado) VALUE (?,?,?,?,?,?,?,?,?)";
         String nombre = txtNombre.getText();
@@ -66,20 +66,20 @@ public class nuevoUsuarioController implements Initializable{
         String estado = cbxEstado.getText();
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1,nombre);
-            pst.setString(2,apellido);
+            pst.setString(1, nombre);
+            pst.setString(2, apellido);
 //            pst.setString(3,birthDate);
             pst.setDate(3, java.sql.Date.valueOf(dpBirthDate.getValue()));
-            pst.setString(4,telefono);
-            pst.setString(5,direccion);
-            pst.setString(6,email);
-            pst.setString(7,usuario);
-            pst.setString(8,password);
-            pst.setString(9,estado);
+            pst.setString(4, telefono);
+            pst.setString(5, direccion);
+            pst.setString(6, email);
+            pst.setString(7, usuario);
+            pst.setString(8, password);
+            pst.setString(9, estado);
 
 
             int i = pst.executeUpdate();
-            if (i == 1){
+            if (i == 1) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("Datos insertados corectamente");

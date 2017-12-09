@@ -16,14 +16,21 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class newMedicoController implements Initializable{
-    @FXML    private JFXTextField txtNombreMedico;
-    @FXML    private JFXTextField txtApellidoMedico;
-    @FXML    private JFXTextField txtEmailMedico;
-    @FXML    private JFXTextField txtDireccionMedico;
-    @FXML    private JFXTextField txtIdentidadMedico;
-    @FXML    private JFXTextField txtTelefonoMedico;
-    @FXML    private JFXComboBox<Areas> cmbMedicoArea;
+public class newMedicoController implements Initializable {
+    @FXML
+    private JFXTextField txtNombreMedico;
+    @FXML
+    private JFXTextField txtApellidoMedico;
+    @FXML
+    private JFXTextField txtEmailMedico;
+    @FXML
+    private JFXTextField txtDireccionMedico;
+    @FXML
+    private JFXTextField txtIdentidadMedico;
+    @FXML
+    private JFXTextField txtTelefonoMedico;
+    @FXML
+    private JFXComboBox<Areas> cmbMedicoArea;
 
     //Colecciones
     private ObservableList<Areas> listaAreas;
@@ -72,7 +79,7 @@ public class newMedicoController implements Initializable{
         int resultado = a.guardarRegistro(conexion.getConnection());
 //        conexion.cerrarConexion();
 
-        if (resultado == 1){
+        if (resultado == 1) {
             listaMedicos.add(a);
             Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
             mensaje.setTitle("Registro agregado");

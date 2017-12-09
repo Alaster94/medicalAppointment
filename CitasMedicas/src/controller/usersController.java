@@ -84,14 +84,12 @@ public class usersController implements Initializable {
     private TableColumn<?, ?> idUsuarios;
 
 
-
-
     private Connection con = null;
     private PreparedStatement pst = null;
     private ResultSet rs = null;
     private ObservableList<usersList> data;
 
-    private void setCellTable(){
+    private void setCellTable() {
         nombres.setCellValueFactory(new PropertyValueFactory<>("nombres"));
         apellidos.setCellValueFactory(new PropertyValueFactory<>("apellidos"));
         birthDate.setCellValueFactory(new PropertyValueFactory<>("birthDate"));
@@ -105,7 +103,7 @@ public class usersController implements Initializable {
 //        estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
     }
 
-    private void setCellValueFromTableToTextField(){
+    private void setCellValueFromTableToTextField() {
 //        usersTable.setOnMouseClicked(new EventHandler<MouseEvent>() {
 //            @Override
 //            public void handle(MouseEvent event) {
@@ -123,14 +121,15 @@ public class usersController implements Initializable {
 //            }
 //        });
     }
-    private void loadDataFromDatabase(){
+
+    private void loadDataFromDatabase() {
         data.clear();
         try {
             pst = con.prepareStatement("SELECT * FROM usuarios");
             rs = pst.executeQuery();
-            while (rs.next()){
-                data.add(new usersList(""+rs.getString(2),""+ rs.getString(3),""+rs.getString(4),
-                        ""+rs.getString(5),""+rs.getString(6),""+rs.getString(7),""+rs.getString(8),""+rs.getString(9),""+rs.getString(10),rs.getString("idUsuarios")));
+            while (rs.next()) {
+                data.add(new usersList("" + rs.getString(2), "" + rs.getString(3), "" + rs.getString(4),
+                        "" + rs.getString(5), "" + rs.getString(6), "" + rs.getString(7), "" + rs.getString(8), "" + rs.getString(9), "" + rs.getString(10), rs.getString("idUsuarios")));
             }
 
 
@@ -140,21 +139,21 @@ public class usersController implements Initializable {
         usersTable.setItems(data);
     }
 
-    public void searchUser(){
+    public void searchUser() {
         txtSearch.setOnKeyReleased(event -> {
-            if (txtSearch.getText().equals("")){
-              loadDataFromDatabase();
-            }else {
+            if (txtSearch.getText().equals("")) {
+                loadDataFromDatabase();
+            } else {
                 data.clear();
-                String sql = "SELECT * FROM usuarios WHERE apellidos LIKE '%" + txtSearch.getText() +"%'"
-                        + "UNION SELECT * FROM usuarios WHERE apellidos LIKE '%" + txtSearch.getText() +"%'"
-                        + "UNION SELECT * FROM usuarios WHERE usuario LIKE '%" + txtSearch.getText() +"%'";
+                String sql = "SELECT * FROM usuarios WHERE apellidos LIKE '%" + txtSearch.getText() + "%'"
+                        + "UNION SELECT * FROM usuarios WHERE apellidos LIKE '%" + txtSearch.getText() + "%'"
+                        + "UNION SELECT * FROM usuarios WHERE usuario LIKE '%" + txtSearch.getText() + "%'";
                 try {
                     pst = con.prepareStatement(sql);
                     rs = pst.executeQuery();
-                    while (rs.next()){
-                        data.add(new usersList(""+rs.getString(2),""+ rs.getString(3),""+rs.getString(4),
-                                ""+rs.getString(5),""+rs.getString(6),""+rs.getString(7),""+rs.getString(8),""+rs.getString(9),""+rs.getString(10),rs.getString("idUsuarios")));
+                    while (rs.next()) {
+                        data.add(new usersList("" + rs.getString(2), "" + rs.getString(3), "" + rs.getString(4),
+                                "" + rs.getString(5), "" + rs.getString(6), "" + rs.getString(7), "" + rs.getString(8), "" + rs.getString(9), "" + rs.getString(10), rs.getString("idUsuarios")));
                     }
                     usersTable.setItems(data);
                 } catch (SQLException e) {
@@ -173,8 +172,8 @@ public class usersController implements Initializable {
         Stage stage = new Stage();
         stage.setTitle("Actualizar Usuario");
         stage.initModality(Modality.APPLICATION_MODAL);
-      //  stage.initOwner((Stage) ((Button) actionEvent.getSource()).getScene().getWindow());
-        stage.setScene(new Scene(page,700,700));
+        //  stage.initOwner((Stage) ((Button) actionEvent.getSource()).getScene().getWindow());
+        stage.setScene(new Scene(page, 700, 700));
         UpdateUserController updateUserController = loader.getController();
         updateUserController.setCliente(id);
         updateUserController.setStage(stage);
@@ -183,7 +182,6 @@ public class usersController implements Initializable {
 
 
 //        updateUserController.setStage(stage);
-
 
 
 //        stage.setScene(scene);
@@ -196,9 +194,9 @@ public class usersController implements Initializable {
 
         try {
             pst = con.prepareStatement(sql);
-            pst.setString(1,txtNombre.getText());
+            pst.setString(1, txtNombre.getText());
             int i = pst.executeUpdate();
-            if (i == 1){
+            if (i == 1) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setHeaderText(null);
                 alert.setContentText("Dato eliminado corectamente");

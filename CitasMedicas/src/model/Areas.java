@@ -44,13 +44,13 @@ public class Areas {
         this.nombreArea.set(nombreArea);
     }
 
-    public static void llenarInformacion(Connection connection, ObservableList<Areas> lista){
+    public static void llenarInformacion(Connection connection, ObservableList<Areas> lista) {
         try {
             Statement statement = connection.createStatement();
-              ResultSet resultado = statement.executeQuery(
+            ResultSet resultado = statement.executeQuery(
                     "SELECT idAreas, nombreArea FROM areas"
             );
-            while (resultado.next()){
+            while (resultado.next()) {
                 lista.add(
                         new Areas(
                                 resultado.getInt("idAreas"),
@@ -62,8 +62,9 @@ public class Areas {
             e.printStackTrace();
         }
     }
+
     @Override
-    public String toString(){
+    public String toString() {
         return nombreArea.get();
     }
 }

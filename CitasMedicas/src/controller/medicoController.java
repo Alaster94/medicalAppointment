@@ -27,46 +27,78 @@ import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class medicoController implements Initializable{
+public class medicoController implements Initializable {
     //TextField
-    @FXML    private JFXTextField txtSearchMedico;
-    @FXML    private JFXTextField detArea;
-    @FXML    private JFXTextField areMedico;
-    @FXML    private JFXTextField telMedico;
-    @FXML    private JFXTextField emaMedico;
-    @FXML    private JFXTextField nombMedico;
-    @FXML    private JFXTextField direcMedico;
-    @FXML    private JFXTextField detIdentidad;
-    @FXML    private JFXTextField detApellido;
-    @FXML    private JFXTextField detDireccion;
-    @FXML    private JFXTextField detNombre;
-    @FXML    private JFXTextField detTelefono;
-    @FXML    private JFXTextField detEmail;
-    @FXML    private JFXTextField apelliMedico;
+    @FXML
+    private JFXTextField txtSearchMedico;
+    @FXML
+    private JFXTextField detArea;
+    @FXML
+    private JFXTextField areMedico;
+    @FXML
+    private JFXTextField telMedico;
+    @FXML
+    private JFXTextField emaMedico;
+    @FXML
+    private JFXTextField nombMedico;
+    @FXML
+    private JFXTextField direcMedico;
+    @FXML
+    private JFXTextField detIdentidad;
+    @FXML
+    private JFXTextField detApellido;
+    @FXML
+    private JFXTextField detDireccion;
+    @FXML
+    private JFXTextField detNombre;
+    @FXML
+    private JFXTextField detTelefono;
+    @FXML
+    private JFXTextField detEmail;
+    @FXML
+    private JFXTextField apelliMedico;
     //Table
-    @FXML    private TableView<Medico> medicos;
-    @FXML    private TableColumn<Medico, String> nombreMedico;
-    @FXML    private TableColumn<Medico, String> emailMedico;
-    @FXML    private TableColumn<Medico, String> telefonoMedico;
-    @FXML    private TableColumn<Medico, String> apellidoMedico;
-    @FXML    private TableColumn<Medico, String> idMedico;
-    @FXML    private TableColumn<Medico, String> areaMedico;
+    @FXML
+    private TableView<Medico> medicos;
+    @FXML
+    private TableColumn<Medico, String> nombreMedico;
+    @FXML
+    private TableColumn<Medico, String> emailMedico;
+    @FXML
+    private TableColumn<Medico, String> telefonoMedico;
+    @FXML
+    private TableColumn<Medico, String> apellidoMedico;
+    @FXML
+    private TableColumn<Medico, String> idMedico;
+    @FXML
+    private TableColumn<Medico, String> areaMedico;
     //TabPane
-    @FXML    private Tab actualizarMedico;
-    @FXML    private TabPane tabPaneMedicos;
-    @FXML    private Tab listMedicos;
-    @FXML    private Tab detalleMedico;
+    @FXML
+    private Tab actualizarMedico;
+    @FXML
+    private TabPane tabPaneMedicos;
+    @FXML
+    private Tab listMedicos;
+    @FXML
+    private Tab detalleMedico;
     //Button
-    @FXML    private Button view;
-    @FXML    private Button btnUpdate;
-    @FXML    private Button btnNew;
-    @FXML    private Button buscar;
-    @FXML    private Button btnEliminar;
+    @FXML
+    private Button view;
+    @FXML
+    private Button btnUpdate;
+    @FXML
+    private Button btnNew;
+    @FXML
+    private Button buscar;
+    @FXML
+    private Button btnEliminar;
     //ComboBox
 //    @FXML    private JFXComboBox<Areas> cmbAreMedico;
-    @FXML    private ComboBox<Areas> cmbAreMedico;
+    @FXML
+    private ComboBox<Areas> cmbAreMedico;
     //Label
-    @FXML    private Label lbIdentidadMedico;
+    @FXML
+    private Label lbIdentidadMedico;
     //Colecciones
     private ObservableList<Areas> listaAreas;
     private ObservableList<Medico> listaMedicos;
@@ -88,7 +120,8 @@ public class medicoController implements Initializable{
         setCellTable();
 
     }
-    private void setCellTable(){
+
+    private void setCellTable() {
         conexion = new DBConnection();
 //        conexion.establecerConexion();
         //Inicializar listas
@@ -108,23 +141,24 @@ public class medicoController implements Initializable{
         medicos.setItems(listaMedicos);
         cmbAreMedico.setItems(listaAreas);
         //Enlazar columnas con atributos
-        idMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("idMedicos"));
-        nombreMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("nombreDoctor"));
-        apellidoMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("apellidoDoctor"));
-        areaMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("areas"));
+        idMedico.setCellValueFactory(new PropertyValueFactory<Medico, String>("idMedicos"));
+        nombreMedico.setCellValueFactory(new PropertyValueFactory<Medico, String>("nombreDoctor"));
+        apellidoMedico.setCellValueFactory(new PropertyValueFactory<Medico, String>("apellidoDoctor"));
+        areaMedico.setCellValueFactory(new PropertyValueFactory<Medico, String>("areas"));
 
-        emailMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("emailDoctor"));
-        telefonoMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("telefonoDoctor"));
+        emailMedico.setCellValueFactory(new PropertyValueFactory<Medico, String>("emailDoctor"));
+        telefonoMedico.setCellValueFactory(new PropertyValueFactory<Medico, String>("telefonoDoctor"));
 
         gestionarEventos();
 //        conexion.cerrarConexion();
     }
-    public void gestionarEventos(){
+
+    public void gestionarEventos() {
         medicos.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Medico>() {
             @Override
             public void changed(ObservableValue<? extends Medico> arg0,
-                Medico valorAnterior, Medico valorSeleccionado) {
-                if(valorSeleccionado!=null){
+                                Medico valorAnterior, Medico valorSeleccionado) {
+                if (valorSeleccionado != null) {
 
                 }
 
@@ -133,7 +167,7 @@ public class medicoController implements Initializable{
     }
 
     public void registrosPacientes(MouseEvent mouseEvent) {
-        if (listMedicos.isSelected()){
+        if (listMedicos.isSelected()) {
             actualizarMedico.setDisable(true);
             detalleMedico.setDisable(true);
         }
@@ -141,9 +175,9 @@ public class medicoController implements Initializable{
 
     public void updateMedico(ActionEvent event) {
         medicoSeleccionado = medicos.getSelectionModel().getSelectedItem();
-        if (medicoSeleccionado == null){
+        if (medicoSeleccionado == null) {
             exibirDialogoError("No ha seleccionado un registro");
-        }else {
+        } else {
             actualizarMedico.setDisable(false);
             tabPaneMedicos.getSelectionModel().select(actualizarMedico);
             lbIdentidadMedico.setText(medicoSeleccionado.getIdMedicos());
@@ -159,16 +193,16 @@ public class medicoController implements Initializable{
     }
 
     public void eliminarMedico() {
-        if(medicos.getSelectionModel().getSelectedItem() == null){
+        if (medicos.getSelectionModel().getSelectedItem() == null) {
             exibirDialogoError("No ha seleccionado un Registro");
-        }else {
-            if (exibirDialogoConfirmacion("Confirma si quieres eliminar el registro seleccionado?")){
+        } else {
+            if (exibirDialogoConfirmacion("Confirma si quieres eliminar el registro seleccionado?")) {
                 try {
                     Medico.eliminarRegistro(medicos.getSelectionModel().getSelectedItem().getIdMedicos());
                     exibirDialogoInformacao("Registro Eliminado");
                     tabPaneMedicos.getSelectionModel().select(listMedicos);
                     setCellTable();
-                }catch (Exception e){
+                } catch (Exception e) {
                     exibirDialogoError("Fallo al eliminar el registro");
                     e.printStackTrace();
                 }
@@ -195,17 +229,17 @@ public class medicoController implements Initializable{
 
         String nombreBusqueda = txtSearchMedico.getText().trim();
         listaMedicos.clear();
-        if (txtSearchMedico.getText().equals("")){
+        if (txtSearchMedico.getText().equals("")) {
             setCellTable();
-        }else {
-            if (nombreBusqueda.length()>=1){//Realiza la busqueda solo si se ha escrito mas de 2 caracteres
+        } else {
+            if (nombreBusqueda.length() >= 1) {//Realiza la busqueda solo si se ha escrito mas de 2 caracteres
 
                 Connection con = DBConnection.getConnection();
                 try {
                     Statement stnt = con.createStatement();
                     String sql = "SELECT M.idMedicos, M.nombreDoctor,M.apellidoDoctor,M.direccion, M.telefono, M.email, A.idAreas, A.nombreArea FROM medicos M INNER JOIN areas A ON (M.areas_idAreas = A.idAreas) WHERE nombreDoctor LIKE '%" + nombreBusqueda + "%'";
                     ResultSet resultado = stnt.executeQuery(sql);
-                    while (resultado.next()){
+                    while (resultado.next()) {
                         listaMedicos.add(
                                 new Medico(
                                         resultado.getString("idMedicos"),
@@ -234,9 +268,9 @@ public class medicoController implements Initializable{
 
     public void viewPaciente(ActionEvent event) {
         medicoSeleccionado = medicos.getSelectionModel().getSelectedItem();
-        if (medicoSeleccionado == null){
+        if (medicoSeleccionado == null) {
             exibirDialogoError("No ha seleccionado registro");
-        }else {
+        } else {
             detalleMedico.setDisable(false);
             tabPaneMedicos.getSelectionModel().select(detalleMedico);
             detIdentidad.setText(medicoSeleccionado.getIdMedicos());
@@ -265,29 +299,31 @@ public class medicoController implements Initializable{
         int resultado = a.actualizarRegistro(conexion.getConnection());
 //        conexion.cerrarConexion();
 
-        if (resultado == 1){
-            listaMedicos.set(medicos.getSelectionModel().getSelectedIndex(),a);
+        if (resultado == 1) {
+            listaMedicos.set(medicos.getSelectionModel().getSelectedIndex(), a);
             exibirDialogoConfirmacion("Medico  " + medicoSeleccionado.getNombreDoctor() + "  Actualizado");
             tabPaneMedicos.getSelectionModel().select(listMedicos);
 
         }
     }
 
-    private void exibirDialogoInformacao(String informacion){
+    private void exibirDialogoInformacao(String informacion) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Informacion");
         alert.setHeaderText(null);
         alert.setContentText(informacion);
         alert.showAndWait();
     }
-    private void exibirDialogoError(String error){
+
+    private void exibirDialogoError(String error) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText(null);
         alert.setContentText(error);
         alert.showAndWait();
     }
-    private boolean exibirDialogoConfirmacion(String confirmacion){
+
+    private boolean exibirDialogoConfirmacion(String confirmacion) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmacion");
         alert.setHeaderText(null);

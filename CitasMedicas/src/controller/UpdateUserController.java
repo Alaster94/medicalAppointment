@@ -10,7 +10,7 @@ import javafx.stage.Stage;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class UpdateUserController implements Initializable{
+public class UpdateUserController implements Initializable {
 
     @FXML
     private CheckBox cbxEstado;
@@ -41,11 +41,11 @@ public class UpdateUserController implements Initializable{
 
     Stage stage;
 
-    public void setStage(Stage stage){
+    public void setStage(Stage stage) {
         this.stage = stage;
     }
 
-    public void setCliente(String id){
+    public void setCliente(String id) {
 //        ResultSet datosCliente = updateModelUser.mostrarUsuario(id);
 //        try {
 //            datosCliente.next();

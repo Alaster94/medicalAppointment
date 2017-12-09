@@ -12,7 +12,7 @@ public class usersList {
     private String password;
     private String estado;
 
-    public usersList(String nombre, String apellido, String birthDate, String direccion, String telefono, String email, String usuario, String password, String estado,String id) {
+    public usersList(String nombre, String apellido, String birthDate, String direccion, String telefono, String email, String usuario, String password, String estado, String id) {
         this.nombres = nombre;
         this.apellidos = apellido;
         this.birthDate = birthDate;
@@ -22,7 +22,7 @@ public class usersList {
         this.usuario = usuario;
         this.password = password;
         this.estado = estado;
-        this.id=id;
+        this.id = id;
     }
 
     public String getId() {

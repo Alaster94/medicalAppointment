@@ -23,20 +23,31 @@ import java.util.ResourceBundle;
 
 public class newPacienteController implements Initializable {
     //TextField
-    @FXML private JFXTextField txtIdentidadPaciente;
-    @FXML private JFXTextField txtNombrePaciente;
-    @FXML private JFXTextField txtTelefonoPaciente;
-    @FXML private JFXTextField txtApellidoPaciente;
-    @FXML private JFXTextField txtDireccionPaciente;
-    @FXML private JFXTextField txtEmailPaciente;
+    @FXML
+    private JFXTextField txtIdentidadPaciente;
+    @FXML
+    private JFXTextField txtNombrePaciente;
+    @FXML
+    private JFXTextField txtTelefonoPaciente;
+    @FXML
+    private JFXTextField txtApellidoPaciente;
+    @FXML
+    private JFXTextField txtDireccionPaciente;
+    @FXML
+    private JFXTextField txtEmailPaciente;
     //RadioButton
-    @FXML private JFXRadioButton rbtFemenino;
-    @FXML private JFXRadioButton rbtMasculino;
-    @FXML private ToggleGroup GrupoGenero;
+    @FXML
+    private JFXRadioButton rbtFemenino;
+    @FXML
+    private JFXRadioButton rbtMasculino;
+    @FXML
+    private ToggleGroup GrupoGenero;
     //DatePicker
-    @FXML private DatePicker dpFechaIngreso;
+    @FXML
+    private DatePicker dpFechaIngreso;
     //ComboBox
-    @FXML private JFXComboBox<Medico> cmbMedico;
+    @FXML
+    private JFXComboBox<Medico> cmbMedico;
 
     //Colecciones
     private ObservableList<Medico> listaMedicos;
@@ -69,7 +80,7 @@ public class newPacienteController implements Initializable {
         Pacientes p = new Pacientes(txtIdentidadPaciente.getText(),
                 txtNombrePaciente.getText(),
                 txtApellidoPaciente.getText(),
-                rbtFemenino.isSelected()?"Femenino":"Masculino",
+                rbtFemenino.isSelected() ? "Femenino" : "Masculino",
                 Date.valueOf(dpFechaIngreso.getValue()),
                 txtDireccionPaciente.getText(),
                 txtEmailPaciente.getText(),
@@ -77,7 +88,7 @@ public class newPacienteController implements Initializable {
                 cmbMedico.getSelectionModel().getSelectedItem());
         //Llamar al metodo guardarRegistro de la clase Alumno
         int resultado = p.guardarPaciente(conexion.getConnection());
-        if (resultado == 1){
+        if (resultado == 1) {
             listaPacientes.add(p);
             Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
             mensaje.setTitle("Registro agregado");

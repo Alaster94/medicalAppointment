@@ -27,51 +27,86 @@ import java.sql.*;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-public class pacientesController implements Initializable{
+public class pacientesController implements Initializable {
     //TextField
-    @FXML    private JFXTextField identidad;
-    @FXML    private JFXTextField nombre;
-    @FXML    private JFXTextField apellido;
-    @FXML    private JFXTextField genero;
-    @FXML    private JFXTextField telefono;
-    @FXML    private JFXTextField email;
-    @FXML    private JFXTextField txtSearch;
-    @FXML    private JFXTextField direccion;
-    @FXML    private JFXTextField nombrePaciente;
-    @FXML    private JFXTextField telefonoPacient;
-    @FXML    private JFXTextField apellidoPaciente;
-    @FXML    private JFXTextField direccionPaciente;
-    @FXML    private JFXTextField emailPacient;
+    @FXML
+    private JFXTextField identidad;
+    @FXML
+    private JFXTextField nombre;
+    @FXML
+    private JFXTextField apellido;
+    @FXML
+    private JFXTextField genero;
+    @FXML
+    private JFXTextField telefono;
+    @FXML
+    private JFXTextField email;
+    @FXML
+    private JFXTextField txtSearch;
+    @FXML
+    private JFXTextField direccion;
+    @FXML
+    private JFXTextField nombrePaciente;
+    @FXML
+    private JFXTextField telefonoPacient;
+    @FXML
+    private JFXTextField apellidoPaciente;
+    @FXML
+    private JFXTextField direccionPaciente;
+    @FXML
+    private JFXTextField emailPacient;
     //DatePicker
-    @FXML    private DatePicker fecha;
-    @FXML    private DatePicker fechaPacient;
+    @FXML
+    private DatePicker fecha;
+    @FXML
+    private DatePicker fechaPacient;
     //TableView
-    @FXML    private TableView<Pacientes> pacientes;
-    @FXML    private TableColumn<Pacientes, String> idPacient;
-    @FXML    private TableColumn<Pacientes, String> nombrePacient;
-    @FXML    private TableColumn<Pacientes, String> apellidoPacient;
-    @FXML    private TableColumn<Pacientes, Date> fechaPaciente;
-    @FXML    private TableColumn<Pacientes, String> telefonoPaciente;
-    @FXML    private TableColumn<Pacientes, String> emailPaciente;
+    @FXML
+    private TableView<Pacientes> pacientes;
+    @FXML
+    private TableColumn<Pacientes, String> idPacient;
+    @FXML
+    private TableColumn<Pacientes, String> nombrePacient;
+    @FXML
+    private TableColumn<Pacientes, String> apellidoPacient;
+    @FXML
+    private TableColumn<Pacientes, Date> fechaPaciente;
+    @FXML
+    private TableColumn<Pacientes, String> telefonoPaciente;
+    @FXML
+    private TableColumn<Pacientes, String> emailPaciente;
     //TabPane
-    @FXML    private TabPane tabPanePacientes;
-    @FXML    private Tab listPacientes;
-    @FXML    private Tab actualizarPaciente;
-    @FXML    private Tab detallePaciente;
+    @FXML
+    private TabPane tabPanePacientes;
+    @FXML
+    private Tab listPacientes;
+    @FXML
+    private Tab actualizarPaciente;
+    @FXML
+    private Tab detallePaciente;
     //Button
-    @FXML    private Button buscar;
-    @FXML    private Button btnUpdate;
-    @FXML    private Button btnNew;
-    @FXML    private Button btnEliminar;
+    @FXML
+    private Button buscar;
+    @FXML
+    private Button btnUpdate;
+    @FXML
+    private Button btnNew;
+    @FXML
+    private Button btnEliminar;
     //ComboBox
-    @FXML    private ComboBox<Medico> cmbListMedico;
+    @FXML
+    private ComboBox<Medico> cmbListMedico;
     //Label
-    @FXML    private Label lbIdentidad;
+    @FXML
+    private Label lbIdentidad;
 
     //RadioButton
-    @FXML    private ToggleGroup GrupoGenero;
-    @FXML    private JFXRadioButton rbtFemenino;
-    @FXML    private JFXRadioButton rbtMasculino;
+    @FXML
+    private ToggleGroup GrupoGenero;
+    @FXML
+    private JFXRadioButton rbtFemenino;
+    @FXML
+    private JFXRadioButton rbtMasculino;
 
     //Colecciones
     private ObservableList<Medico> listaMedicos;
@@ -85,7 +120,8 @@ public class pacientesController implements Initializable{
     public void initialize(URL location, ResourceBundle resources) {
         setCellTable();
     }
-    private void setCellTable(){
+
+    private void setCellTable() {
         conexion = new DBConnection();
 //        conexion.establecerConexion();
         //Inicializar listas
@@ -106,16 +142,16 @@ public class pacientesController implements Initializable{
         pacientes.setItems(listaPacientes);
         cmbListMedico.setItems(listaMedicos);
         //Enlazar columnas con atributos
-        idPacient.setCellValueFactory(new PropertyValueFactory<Pacientes,String>("idPacientes"));
-        nombrePacient.setCellValueFactory(new PropertyValueFactory<Pacientes,String>("nombrePaciente"));
-        apellidoPacient.setCellValueFactory(new PropertyValueFactory<Pacientes,String>("apellidoPaciente"));
-        fechaPaciente.setCellValueFactory(new PropertyValueFactory<Pacientes,Date>("fechaNacimiento"));
-        telefonoPaciente.setCellValueFactory(new PropertyValueFactory<Pacientes,String>("telefono"));
-        emailPaciente.setCellValueFactory(new PropertyValueFactory<Pacientes,String>("email"));
+        idPacient.setCellValueFactory(new PropertyValueFactory<Pacientes, String>("idPacientes"));
+        nombrePacient.setCellValueFactory(new PropertyValueFactory<Pacientes, String>("nombrePaciente"));
+        apellidoPacient.setCellValueFactory(new PropertyValueFactory<Pacientes, String>("apellidoPaciente"));
+        fechaPaciente.setCellValueFactory(new PropertyValueFactory<Pacientes, Date>("fechaNacimiento"));
+        telefonoPaciente.setCellValueFactory(new PropertyValueFactory<Pacientes, String>("telefono"));
+        emailPaciente.setCellValueFactory(new PropertyValueFactory<Pacientes, String>("email"));
     }
 
     public void registrosPacientes(MouseEvent mouseEvent) {
-        if (listPacientes.isSelected()){
+        if (listPacientes.isSelected()) {
             actualizarPaciente.setDisable(true);
             detallePaciente.setDisable(true);
         }
@@ -123,18 +159,18 @@ public class pacientesController implements Initializable{
 
     public void updatePaciente(ActionEvent event) {
         pacienteSeleccionado = pacientes.getSelectionModel().getSelectedItem();
-        if (pacienteSeleccionado == null){
+        if (pacienteSeleccionado == null) {
             exibirError("No ha seleccionado un registro");
-        }else {
+        } else {
             actualizarPaciente.setDisable(false);
             tabPanePacientes.getSelectionModel().select(actualizarPaciente);
             lbIdentidad.setText(pacienteSeleccionado.getIdPacientes());
             nombrePaciente.setText(pacienteSeleccionado.getNombrePaciente());
             apellidoPaciente.setText(pacienteSeleccionado.getApellidoPaciente());
-            if (pacienteSeleccionado.getGenero().equals("Femenino")){
+            if (pacienteSeleccionado.getGenero().equals("Femenino")) {
                 rbtFemenino.setSelected(true);
                 rbtMasculino.setSelected(false);
-            }else if (pacienteSeleccionado.getGenero().equals("Masculino")){
+            } else if (pacienteSeleccionado.getGenero().equals("Masculino")) {
                 rbtFemenino.setSelected(false);
                 rbtMasculino.setSelected(true);
             }
@@ -148,16 +184,16 @@ public class pacientesController implements Initializable{
     }
 
     public void eliminarPaciente(ActionEvent event) {
-        if(pacientes.getSelectionModel().getSelectedItem() == null){
+        if (pacientes.getSelectionModel().getSelectedItem() == null) {
             exibirError("No ha seleccionado un Paciente");
-        }else {
-            if (exibirDialogoConfirmacion("Confirma si quieres eliminar el Paciente seleccionado?")){
+        } else {
+            if (exibirDialogoConfirmacion("Confirma si quieres eliminar el Paciente seleccionado?")) {
                 try {
                     Pacientes.eliminarPaciente(pacientes.getSelectionModel().getSelectedItem().getIdPacientes());
                     exibirInformacion("Registro Eliminado");
                     tabPanePacientes.getSelectionModel().select(listPacientes);
                     setCellTable();
-                }catch (Exception e){
+                } catch (Exception e) {
                     exibirError("Fallo al eliminar el registro");
                     e.printStackTrace();
                 }
@@ -183,16 +219,16 @@ public class pacientesController implements Initializable{
     public void consultarPaciente(KeyEvent keyEvent) throws SQLException, ClassNotFoundException {
         String pacienteBuscar = txtSearch.getText().trim();
         listaPacientes.clear();
-        if (txtSearch.getText().equals("")){
+        if (txtSearch.getText().equals("")) {
             setCellTable();
-        }else {
-            if (pacienteBuscar.length()>=1){//Realiza la busqueda solo si se ha escrito mas de 2 caracteres
+        } else {
+            if (pacienteBuscar.length() >= 1) {//Realiza la busqueda solo si se ha escrito mas de 2 caracteres
                 Connection con = DBConnection.getConnection();
                 try {
                     Statement stnt = con.createStatement();
                     String sql = "SELECT P.idPacientes, P.nombrePaciente, P.apellidoPaciente, P.genero, P.fechaNacimiento, P.direccion, P.email, P.telefono, M.idMedicos, M.nombreDoctor, M.apellidoDoctor FROM pacientes P INNER JOIN medicos M ON (P.medicos_idMedicos = M.idMedicos) WHERE P.nombrePaciente LIKE '%" + pacienteBuscar + "%'";
                     ResultSet resultado = stnt.executeQuery(sql);
-                    while (resultado.next()){
+                    while (resultado.next()) {
                         listaPacientes.add(
                                 new Pacientes(
                                         resultado.getString("idPacientes"),
@@ -229,7 +265,7 @@ public class pacientesController implements Initializable{
                 lbIdentidad.getText(),
                 nombrePaciente.getText(),
                 apellidoPaciente.getText(),
-                rbtFemenino.isSelected()?"Femenino":"Masculino",
+                rbtFemenino.isSelected() ? "Femenino" : "Masculino",
                 Date.valueOf(fechaPacient.getValue()),
                 direccionPaciente.getText(),
                 emailPacient.getText(),
@@ -239,29 +275,31 @@ public class pacientesController implements Initializable{
         int resultado = p.actualizarPaciente(conexion.getConnection());
 //        conexion.cerrarConexion();
 
-        if (resultado == 1){
-            listaPacientes.set(pacientes.getSelectionModel().getSelectedIndex(),p);
+        if (resultado == 1) {
+            listaPacientes.set(pacientes.getSelectionModel().getSelectedIndex(), p);
             exibirDialogoConfirmacion("Medico  " + pacienteSeleccionado.getNombrePaciente() + "  Actualizado");
             tabPanePacientes.getSelectionModel().select(listPacientes);
 
         }
     }
 
-    private void exibirInformacion(String informacion){
+    private void exibirInformacion(String informacion) {
         Alert alarta = new Alert(Alert.AlertType.INFORMATION);
         alarta.setTitle("Informacion Paciente");
         alarta.setHeaderText(null);
         alarta.setContentText(informacion);
         alarta.showAndWait();
     }
-    private void exibirError(String error){
+
+    private void exibirError(String error) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error Paciente");
         alert.setHeaderText(null);
         alert.setContentText(error);
         alert.showAndWait();
     }
-    private boolean exibirDialogoConfirmacion(String confirmacion){
+
+    private boolean exibirDialogoConfirmacion(String confirmacion) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirmacion Paciente");
         alert.setHeaderText(null);
