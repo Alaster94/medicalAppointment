@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import com.jfoenix.controls.*?>
 <?import java.net.*?>
 <?import java.lang.*?>
@@ -8,50 +9,52 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="593.0" prefWidth="535.0" stylesheets="@../style/MainStyle.css"
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.nuevoUsuarioController">
-    <children>
-        <Pane prefHeight="76.0" prefWidth="535.0" styleClass="note">
-            <children>
-                <Label layoutX="43.0" layoutY="19.0" styleClass="title-text" text="REGISTRO DE NUEVO USUARIO"/>
-            </children>
-        </Pane>
-        <Pane layoutY="74.0" prefHeight="524.0" prefWidth="535.0" styleClass="body">
-            <children>
-                <Label layoutX="21.0" layoutY="26.0" text="Nombre:"/>
-                <Label layoutX="21.0" layoutY="73.0" text="Apellidos:"/>
-                <Label layoutX="21.0" layoutY="120.0" text="Fecha Nacimiento:"/>
-                <Label layoutX="21.0" layoutY="162.0" text="Dirección:"/>
-                <Label layoutX="21.0" layoutY="208.0" text="Telefono:"/>
-                <DatePicker fx:id="dpBirthDate" layoutX="154.0" layoutY="115.0" prefHeight="31.0" prefWidth="274.0"/>
-                <Label layoutX="21.0" layoutY="255.0" text="Email:"/>
-                <Label layoutX="21.0" layoutY="392.0" text="Estado:"/>
-                <CheckBox fx:id="cbxEstado" layoutX="152.0" layoutY="392.0" mnemonicParsing="false" text="Activo"/>
-                <Button layoutX="143.0" layoutY="447.0" mnemonicParsing="false" onAction="#registerAction"
-                        text="Registrar">
-                    <styleClass>
-                        <String fx:value="btn"/>
-                        <String fx:value="btn-search"/>
-                    </styleClass>
-                </Button>
-                <Button layoutX="280.0" layoutY="447.0" mnemonicParsing="false" onAction="#cancelAction"
-                        text="Cancelar">
-                    <styleClass>
-                        <String fx:value="btn"/>
-                        <String fx:value="btn-remove"/>
-                    </styleClass>
-                </Button>
-                <JFXTextField fx:id="txtNombre" layoutX="154.0" layoutY="22.0" prefHeight="29.0" prefWidth="274.0"/>
-                <JFXTextField fx:id="txtApellido" layoutX="154.0" layoutY="69.0" prefHeight="29.0" prefWidth="274.0"/>
-                <JFXTextField fx:id="txtTelefono" layoutX="154.0" layoutY="204.0" prefHeight="29.0" prefWidth="274.0"/>
-                <JFXTextField fx:id="txtDireccion" layoutX="154.0" layoutY="158.0" prefHeight="29.0" prefWidth="274.0"/>
-                <JFXTextField fx:id="txtEmail" layoutX="154.0" layoutY="251.0" prefHeight="29.0" prefWidth="274.0"/>
-                <JFXTextField fx:id="txtUsuario" layoutX="154.0" layoutY="296.0" prefHeight="29.0" prefWidth="274.0"/>
-                <Label layoutX="21.0" layoutY="300.0" text="Usuario:"/>
-                <JFXTextField fx:id="txtPassword" layoutX="154.0" layoutY="338.0" prefHeight="29.0" prefWidth="274.0"/>
-                <Label layoutX="21.0" layoutY="342.0" text="Password:"/>
-            </children>
-        </Pane>
-    </children>
+<AnchorPane prefHeight="767.0" prefWidth="649.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.nuevoUsuarioController">
+   <children>
+      <Pane prefHeight="76.0" prefWidth="649.0" styleClass="note">
+         <children>
+            <Label layoutX="76.0" layoutY="19.0" styleClass="title-text" text="REGISTRO DE NUEVO USUARIO" />
+         </children>
+      </Pane>
+      <Pane layoutY="74.0" prefHeight="697.0" prefWidth="649.0" styleClass="body">
+         <children>
+            <DatePicker fx:id="dpBirthDate" layoutX="32.0" layoutY="190.0" prefHeight="31.0" prefWidth="309.0" promptText="Fecha Inicio" />
+            <Label layoutX="30.0" layoutY="514.0" text="Estado:" />
+            <Button layoutX="206.0" layoutY="630.0" mnemonicParsing="false" onAction="#registrarUsuario" text="Registrar">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-search" />
+               </styleClass>
+            </Button>
+            <Button layoutX="317.0" layoutY="630.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancelar">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-remove" />
+               </styleClass>
+            </Button>
+            <JFXTextField fx:id="txtNombre" labelFloat="true" layoutX="32.0" layoutY="80.0" prefHeight="29.0" prefWidth="546.0" promptText="Nombre del Usuario" />
+            <JFXTextField fx:id="txtApellido" labelFloat="true" layoutX="32.0" layoutY="138.0" prefHeight="29.0" prefWidth="546.0" promptText="Apellido del Usuario" />
+            <JFXTextField fx:id="txtTelefono" labelFloat="true" layoutX="30.0" layoutY="295.0" prefHeight="29.0" prefWidth="546.0" promptText="Telefono del Usuario" />
+            <JFXTextField fx:id="txtDireccion" labelFloat="true" layoutX="32.0" layoutY="242.0" prefHeight="29.0" prefWidth="546.0" promptText="Direccion del Usuario" />
+            <JFXTextField fx:id="txtEmail" labelFloat="true" layoutX="31.0" layoutY="349.0" prefHeight="29.0" prefWidth="546.0" promptText="Email del Usuario" />
+            <JFXTextField fx:id="txtUsuario" labelFloat="true" layoutX="30.0" layoutY="404.0" prefHeight="29.0" prefWidth="546.0" promptText="Nombre de Inicio de Secion" />
+            <HBox layoutX="92.0" layoutY="506.0" prefHeight="37.0" prefWidth="286.0" spacing="20.0">
+               <children>
+                  <JFXRadioButton fx:id="rbtActivo" text="Activo">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="GrupoGenero" />
+                     </toggleGroup>
+                  </JFXRadioButton>
+                  <JFXRadioButton fx:id="rbtInactivo" text="Inactivo" toggleGroup="$GrupoGenero" />
+               </children>
+               <padding>
+                  <Insets top="8.0" />
+               </padding>
+            </HBox>
+            <JFXComboBox fx:id="cmbPrivilegio" labelFloat="true" layoutX="30.0" layoutY="557.0" prefHeight="31.0" prefWidth="546.0" promptText="Privilegio para el Usuario" />
+            <JFXPasswordField fx:id="txtPassword" labelFloat="true" layoutX="31.0" layoutY="461.0" prefHeight="29.0" prefWidth="546.0" promptText="Password" />
+            <JFXTextField fx:id="txtIdUsuario" labelFloat="true" layoutX="32.0" layoutY="26.0" prefHeight="29.0" prefWidth="546.0" promptText="Identidad del Usuario" />
+         </children>
+      </Pane>
+   </children>
 </AnchorPane>
