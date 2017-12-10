@@ -1,52 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.*?>
-<?import javafx.geometry.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 
-<AnchorPane prefHeight="645.0" prefWidth="620.0" stylesheets="@../style/MainStyle.css"
-            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.newMedicoController">
+<AnchorPane prefHeight="645.0" prefWidth="620.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.newMedicoController">
     <children>
         <Pane prefHeight="76.0" prefWidth="620.0" styleClass="note">
             <children>
-                <Label layoutX="72.0" layoutY="19.0" styleClass="title-text" text="REGISTRO DE NUEVO PACIENTE"/>
+                <Label layoutX="72.0" layoutY="19.0" styleClass="title-text" text="REGISTRO DE NUEVO MEDICO" />
             </children>
         </Pane>
         <Pane layoutY="74.0" prefHeight="629.0" prefWidth="620.0" styleClass="body">
             <children>
-                <Button layoutX="174.0" layoutY="561.0" mnemonicParsing="false" onAction="#registerMedico"
-                        text="Registrar">
+                <Button layoutX="174.0" layoutY="561.0" mnemonicParsing="false" onAction="#registerMedico" text="Registrar">
                     <styleClass>
-                        <String fx:value="btn"/>
-                        <String fx:value="btn-search"/>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-search" />
                     </styleClass>
                 </Button>
-                <Button layoutX="335.0" layoutY="561.0" mnemonicParsing="false" onAction="#cancelMedico"
-                        text="Cancelar">
+                <Button layoutX="335.0" layoutY="561.0" mnemonicParsing="false" onAction="#cancelMedico" text="Cancelar">
                     <styleClass>
-                        <String fx:value="btn"/>
-                        <String fx:value="btn-remove"/>
+                        <String fx:value="btn" />
+                        <String fx:value="btn-remove" />
                     </styleClass>
                 </Button>
-                <JFXTextField fx:id="txtIdentidadMedico" labelFloat="true" layoutX="46.0" layoutY="48.0"
-                              prefHeight="29.0" prefWidth="519.0" promptText="Escriba el Numero de Identidad"/>
-                <JFXTextField fx:id="txtNombreMedico" labelFloat="true" layoutX="46.0" layoutY="113.0" prefHeight="29.0"
-                              prefWidth="519.0" promptText="Nombre Medico"/>
-                <JFXTextField fx:id="txtTelefonoMedico" labelFloat="true" layoutX="46.0" layoutY="308.0"
-                              prefHeight="29.0" prefWidth="519.0" promptText="Telefono Medico"/>
-                <JFXTextField fx:id="txtApellidoMedico" labelFloat="true" layoutX="46.0" layoutY="170.0"
-                              prefHeight="29.0" prefWidth="519.0" promptText="Apellido Medico"/>
-                <JFXTextField fx:id="txtDireccionMedico" labelFloat="true" layoutX="46.0" layoutY="239.0"
-                              prefHeight="29.0" prefWidth="519.0" promptText="Direccion Medico"/>
-                <JFXTextField fx:id="txtEmailMedico" labelFloat="true" layoutX="46.0" layoutY="379.0" prefHeight="29.0"
-                              prefWidth="519.0" promptText="Email Medico"/>
-                <JFXComboBox fx:id="cmbMedicoArea" labelFloat="true" layoutX="46.0" layoutY="445.0" prefHeight="31.0"
-                             prefWidth="519.0" promptText="Area"/>
+                <JFXTextField fx:id="txtIdentidadMedico" labelFloat="true" layoutX="46.0" layoutY="48.0" prefHeight="29.0" prefWidth="519.0" promptText="Escriba el Numero de Identidad" />
+                <JFXTextField fx:id="txtNombreMedico" labelFloat="true" layoutX="46.0" layoutY="113.0" prefHeight="29.0" prefWidth="519.0" promptText="Nombre Medico" />
+                <JFXTextField fx:id="txtTelefonoMedico" labelFloat="true" layoutX="46.0" layoutY="308.0" prefHeight="29.0" prefWidth="519.0" promptText="Telefono Medico" />
+                <JFXTextField fx:id="txtApellidoMedico" labelFloat="true" layoutX="46.0" layoutY="170.0" prefHeight="29.0" prefWidth="519.0" promptText="Apellido Medico" />
+                <JFXTextField fx:id="txtDireccionMedico" labelFloat="true" layoutX="46.0" layoutY="239.0" prefHeight="29.0" prefWidth="519.0" promptText="Direccion Medico" />
+                <JFXTextField fx:id="txtEmailMedico" labelFloat="true" layoutX="46.0" layoutY="379.0" prefHeight="29.0" prefWidth="519.0" promptText="Email Medico" />
+                <JFXComboBox fx:id="cmbMedicoArea" labelFloat="true" layoutX="46.0" layoutY="445.0" prefHeight="31.0" prefWidth="519.0" promptText="Area" />
             </children>
         </Pane>
     </children>
