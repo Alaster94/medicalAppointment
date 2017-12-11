@@ -1,111 +1,97 @@
 package controller;
 
+import com.jfoenix.controls.JFXComboBox;
+import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
+import dba.DBConnection;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
-import model.usersList;
+import javafx.scene.control.ToggleGroup;
+import model.Medico;
+import model.Pacientes;
+import model.TipoUsuario;
+import model.Usuarios;
 
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class nuevoUsuarioController implements Initializable {
-    @FXML
-    private CheckBox cbxEstado;
+public class nuevoUsuarioController implements Initializable{
+    //TextField
+    @FXML    private JFXTextField txtIdUsuario;
+    @FXML    private JFXTextField txtNombre;
+    @FXML    private JFXTextField txtDireccion;
+    @FXML    private JFXTextField txtTelefono;
+    @FXML    private JFXTextField txtEmail;
+    @FXML    private JFXTextField txtApellido;
+    @FXML    private JFXTextField txtUsuario;
+    //PasswordField
+    @FXML    private JFXPasswordField txtPassword;
+    //RadioButton
+    @FXML    private ToggleGroup GrupoGenero;
+    @FXML    private JFXRadioButton rbtInactivo;
+    @FXML    private JFXRadioButton rbtActivo;
+    //DatePicker
+    @FXML    private DatePicker dpBirthDate;
+    //ComboBox
+    @FXML    private JFXComboBox<TipoUsuario> cmbPrivilegio;
+    //Colecciones
+    private ObservableList<TipoUsuario> listTipoUsuario;
+    private ObservableList<Usuarios> listUsuarios;
+    private DBConnection conexion;
 
-    @FXML
-    private JFXTextField txtNombre;
-
-    @FXML
-    private JFXTextField txtDireccion;
-
-    @FXML
-    private JFXTextField txtTelefono;
-
-    @FXML
-    private DatePicker dpBirthDate;
-
-    @FXML
-    private JFXTextField txtEmail;
-
-    @FXML
-    private JFXTextField txtApellido;
-
-    @FXML
-    private JFXTextField txtUsuario;
-
-    @FXML
-    private JFXTextField txtPassword;
-
-
-    private Connection con = null;
-    private PreparedStatement pst = null;
-    private ResultSet rs = null;
-    private ObservableList<usersList> data;
-
-    public void registerAction(ActionEvent event) {
-
-        String sql = "INSERT INTO usuarios(nombres,apellidos,birthDate,telefono,direccion,email,usuario,password,estado) VALUE (?,?,?,?,?,?,?,?,?)";
-        String nombre = txtNombre.getText();
-        String apellido = txtApellido.getText();
-//        String birthDate = (String) dpBirthDate.getUserData();
-//        Object birthDate = dpBirthDate.getUserData();
-        String telefono = txtTelefono.getText();
-        String direccion = txtDireccion.getText();
-        String email = txtEmail.getText();
-        String usuario = txtUsuario.getText();
-        String password = txtPassword.getText();
-        String estado = cbxEstado.getText();
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        conexion = new DBConnection();
+        //Inicializar listas
+        listTipoUsuario = FXCollections.observableArrayList();
+        listUsuarios = FXCollections.observableArrayList();
+        //Llenar listas
         try {
-            pst = con.prepareStatement(sql);
-            pst.setString(1, nombre);
-            pst.setString(2, apellido);
-//            pst.setString(3,birthDate);
-            pst.setDate(3, java.sql.Date.valueOf(dpBirthDate.getValue()));
-            pst.setString(4, telefono);
-            pst.setString(5, direccion);
-            pst.setString(6, email);
-            pst.setString(7, usuario);
-            pst.setString(8, password);
-            pst.setString(9, estado);
-
-
-            int i = pst.executeUpdate();
-            if (i == 1) {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setHeaderText(null);
-                alert.setContentText("Datos insertados corectamente");
-                alert.show();
-
-            }
+            TipoUsuario.llenarInformacionTipo(conexion.getConnection(), listTipoUsuario);
+            Usuarios.llenarInformacionUsuarios(conexion.getConnection(), listUsuarios);
+        } catch (ClassNotFoundException a) {
+            a.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
+        }
+
+        //Enlazar Listas con ComboBox y TableView
+        cmbPrivilegio.setItems(listTipoUsuario);
+    }
+
+    public void registrarUsuario(ActionEvent event) throws SQLException, ClassNotFoundException {
+        //Crear una nueva instancia del tipo Paciente
+        Usuarios u = new Usuarios(txtIdUsuario.getText(),
+                txtNombre.getText(),
+                txtApellido.getText(),
+                Date.valueOf(dpBirthDate.getValue()),
+                txtTelefono.getText(),
+                txtDireccion.getText(),
+                txtEmail.getText(),
+                txtUsuario.getText(),
+                txtPassword.getText(),
+                rbtActivo.isSelected()?"Activo":"Inactivo",
+                cmbPrivilegio.getSelectionModel().getSelectedItem());
+        //Llamar al metodo guardarRegistro de la clase Alumno
+        int resultado = u.guardarUsuario(conexion.getConnection());
+        if (resultado == 1){
+            listUsuarios.add(u);
+            Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+            mensaje.setTitle("Registro Agregado con Exito");
+            mensaje.setContentText("El registro ha sido agregado exitosamente");
+            mensaje.setHeaderText("Resultado:");
+            mensaje.show();
         }
     }
 
     public void cancelAction(ActionEvent event) {
-
-
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-//        try {
-//            con = dba.DBConnection.getConnection();
-//            data = FXCollections.observableArrayList();
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-
     }
 }
