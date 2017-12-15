@@ -11,18 +11,28 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+<<<<<<< HEAD
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+=======
+import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ToggleGroup;
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 import model.Medico;
 import model.Pacientes;
 import model.TipoUsuario;
 import model.Usuarios;
+<<<<<<< HEAD
 import validation.TextFieldValidation;
 
 import java.io.IOException;
+=======
+
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -39,7 +49,10 @@ public class nuevoUsuarioController implements Initializable{
     @FXML    private JFXTextField txtUsuario;
     //PasswordField
     @FXML    private JFXPasswordField txtPassword;
+<<<<<<< HEAD
     @FXML    private JFXPasswordField txtConfirmPassword;
+=======
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     //RadioButton
     @FXML    private ToggleGroup GrupoGenero;
     @FXML    private JFXRadioButton rbtInactivo;
@@ -48,6 +61,7 @@ public class nuevoUsuarioController implements Initializable{
     @FXML    private DatePicker dpBirthDate;
     //ComboBox
     @FXML    private JFXComboBox<TipoUsuario> cmbPrivilegio;
+<<<<<<< HEAD
     @FXML    private Button returnList;
     //LABEL
     @FXML    private Label error_Identidad;
@@ -58,6 +72,8 @@ public class nuevoUsuarioController implements Initializable{
     @FXML    private Label error_Apellido;
     @FXML    private Label error_Email;
     @FXML    private Label error_Fecha;
+=======
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     //Colecciones
     private ObservableList<TipoUsuario> listTipoUsuario;
     private ObservableList<Usuarios> listUsuarios;
@@ -77,6 +93,7 @@ public class nuevoUsuarioController implements Initializable{
             a.printStackTrace();
         } catch (SQLException e) {
             e.printStackTrace();
+<<<<<<< HEAD
         }
 
         //Enlazar Listas con ComboBox y TableView
@@ -147,5 +164,39 @@ public class nuevoUsuarioController implements Initializable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+=======
+        }
+
+        //Enlazar Listas con ComboBox y TableView
+        cmbPrivilegio.setItems(listTipoUsuario);
+    }
+
+    public void registrarUsuario(ActionEvent event) throws SQLException, ClassNotFoundException {
+        //Crear una nueva instancia del tipo Paciente
+        Usuarios u = new Usuarios(txtIdUsuario.getText(),
+                txtNombre.getText(),
+                txtApellido.getText(),
+                Date.valueOf(dpBirthDate.getValue()),
+                txtTelefono.getText(),
+                txtDireccion.getText(),
+                txtEmail.getText(),
+                txtUsuario.getText(),
+                txtPassword.getText(),
+                rbtActivo.isSelected()?"Activo":"Inactivo",
+                cmbPrivilegio.getSelectionModel().getSelectedItem());
+        //Llamar al metodo guardarRegistro de la clase Alumno
+        int resultado = u.guardarUsuario(conexion.getConnection());
+        if (resultado == 1){
+            listUsuarios.add(u);
+            Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+            mensaje.setTitle("Registro Agregado con Exito");
+            mensaje.setContentText("El registro ha sido agregado exitosamente");
+            mensaje.setHeaderText("Resultado:");
+            mensaje.show();
+        }
+    }
+
+    public void cancelAction(ActionEvent event) {
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     }
 }

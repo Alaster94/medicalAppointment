@@ -112,10 +112,10 @@ public class Medico {
         this.areas = areas;
     }
 
-    public int guardarRegistro(Connection connection){
+    public int guardarRegistro(Connection connection) {
         try {
             PreparedStatement instruccion =
-                    connection.prepareStatement("INSERT INTO medicos (idMedicos, nombreDoctor, apellidoDoctor, direccion, email, telefono, areas_idAreas) "+
+                    connection.prepareStatement("INSERT INTO medicos (idMedicos, nombreDoctor, apellidoDoctor, direccion, email, telefono, areas_idAreas) " +
                             "VALUES (?, ?, ?, ?, ?, ?, ?)");
             instruccion.setString(1, idMedicos.get());
             instruccion.setString(2, nombreDoctor.get());
@@ -132,7 +132,7 @@ public class Medico {
         }
     }
 
-    public int actualizarRegistro(Connection connection){
+    public int actualizarRegistro(Connection connection) {
         try {
             PreparedStatement instruccion =
                     connection.prepareStatement(
@@ -154,13 +154,13 @@ public class Medico {
     }
 
     public static void llenarInformacionMedicos(Connection connection,
-                                                ObservableList<Medico> lista){
+                                                ObservableList<Medico> lista) {
         try {
             Statement instruccion = connection.createStatement();
             ResultSet resultado = instruccion.executeQuery(
                     "SELECT M.idMedicos, M.nombreDoctor,M.apellidoDoctor,M.direccion, M.telefono, M.email, A.idAreas, A.nombreArea FROM medicos M INNER JOIN areas A ON (M.areas_idAreas = A.idAreas)"
             );
-            while(resultado.next()){
+            while (resultado.next()) {
                 lista.add(
                         new Medico(
                                 resultado.getString("idMedicos"),
@@ -192,10 +192,40 @@ public class Medico {
             throw new  RuntimeException(e);
         }
 
+<<<<<<< HEAD
     }
     @Override
     public String toString(){
         return nombreDoctor.get()+ " ("+idMedicos.get()+")";
     }
     
+=======
+    //    public int eliminarRegistro(Connection connection){
+//        try {
+//            PreparedStatement instruccion = connection.prepareStatement(
+//                    "DELETE FROM medicos WHERE idMedicos = ?"
+//            );
+//            instruccion.setString(1, idMedicos.get());
+//            return instruccion.executeUpdate();
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            return 0;
+//        }
+//    }
+    public static void eliminarRegistro(String idMedico) throws SQLException, ClassNotFoundException {
+        Connection connection = new DBConnection().getConnection();
+        String sql = "DELETE FROM medicos WHERE idMedicos = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, idMedico);
+            statement.execute();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+
+    }
+
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 }

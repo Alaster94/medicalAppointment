@@ -9,93 +9,112 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="683.0" prefWidth="1057.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.pacientesController">
-   <children>
-      <BorderPane prefHeight="683.0" prefWidth="1057.0" styleClass="body">
-         <bottom>
-            <Pane prefHeight="31.0" prefWidth="581.0" BorderPane.alignment="CENTER">
-               <styleClass>
-                  <String fx:value="status-bar" />
-                  <String fx:value="status-bar-connected" />
-               </styleClass>
-            </Pane>
-         </bottom>
-         <top>
-            <Pane prefHeight="116.0" prefWidth="1134.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fitHeight="102.0" fitWidth="113.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icon/sidePic.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="250.0" layoutY="25.0" styleClass="title-text" text="ADMINISTRACIÓN DE PACIENTES" />
-               </children>
-            </Pane>
-         </top>
-         <center>
-            <TabPane fx:id="tabPanePacientes" prefHeight="466.0" prefWidth="1057.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
-              <tabs>
-                <Tab fx:id="listPacientes" text="ListadoPacientes">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="1098.0">
-                           <children>
-                              <Pane prefHeight="55.0" prefWidth="1034.0">
-                                 <children>
-                                    <JFXTextField fx:id="txtSearch" layoutX="14.0" layoutY="13.0" prefHeight="33.0" prefWidth="407.0" promptText="BUSCAR..." />
-                                    <Button fx:id="btnUpdate" layoutX="740.0" layoutY="11.0" mnemonicParsing="false" onAction="#updatePaciente" text="Actualizar">
-                                       <styleClass>
-                                          <String fx:value="btn" />
-                                          <String fx:value="btn-update" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button fx:id="btnEliminar" layoutX="841.0" layoutY="11.0" mnemonicParsing="false" onAction="#removePaciente" text="Eliminar">
-                                       <styleClass>
-                                          <String fx:value="btn" />
-                                          <String fx:value="btn-remove" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button fx:id="btnNew" layoutX="936.0" layoutY="11.0" mnemonicParsing="false" onAction="#newPaciente" text="Nuevo...">
-                                       <styleClass>
-                                          <String fx:value="btn" />
-                                          <String fx:value="btn-new" />
-                                       </styleClass>
-                                    </Button>
-                                    <Button layoutX="426.0" layoutY="26.0" mnemonicParsing="false" onAction="#consultarFuncionarios" text="Consultar" />
-                                 </children>
-                              </Pane>
-                              <TableView fx:id="pacientes" layoutX="14.0" layoutY="55.0" prefHeight="379.0" prefWidth="1008.0">
-                                 <columns>
-                                    <TableColumn fx:id="idPacientes" editable="false" prefWidth="185.0" text="ID" />
-                                    <TableColumn fx:id="nombrePaciente" editable="false" prefWidth="186.0" text="Nombre" />
-                                    <TableColumn fx:id="apellidoPaciente" editable="false" prefWidth="153.0" text="Apellido" />
-                                    <TableColumn fx:id="fechaPaciente" editable="false" minWidth="0.0" prefWidth="142.0" text="Fecha Ingreso" />
-                                    <TableColumn fx:id="telefonoPaciente" editable="false" prefWidth="153.0" text="Telefono" />
-                                    <TableColumn fx:id="emailPaciente" prefWidth="188.0" text="Email" />
-                                 </columns>
-                              </TableView>
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </Tab>
-                <Tab fx:id="actualizarPaciente" disable="true" text="Actualizar">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </Tab>
-                  <Tab fx:id="detallePaciente" disable="true" text="Detalle">
-                    <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                    </content>
-                  </Tab>
-              </tabs>
-               <BorderPane.margin>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="50.0" />
-               </BorderPane.margin>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-            </TabPane>
-         </center>
-      </BorderPane>
-   </children>
+<AnchorPane prefHeight="683.0" prefWidth="1057.0" stylesheets="@../style/MainStyle.css"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.pacientesController">
+    <children>
+        <BorderPane prefHeight="683.0" prefWidth="1057.0" styleClass="body">
+            <bottom>
+                <Pane prefHeight="31.0" prefWidth="581.0" BorderPane.alignment="CENTER">
+                    <styleClass>
+                        <String fx:value="status-bar"/>
+                        <String fx:value="status-bar-connected"/>
+                    </styleClass>
+                </Pane>
+            </bottom>
+            <top>
+                <Pane prefHeight="116.0" prefWidth="1134.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="102.0" fitWidth="113.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/sidePic.png"/>
+                            </image>
+                        </ImageView>
+                        <Label layoutX="250.0" layoutY="25.0" styleClass="title-text"
+                               text="ADMINISTRACIÓN DE PACIENTES"/>
+                    </children>
+                </Pane>
+            </top>
+            <center>
+                <TabPane fx:id="tabPanePacientes" prefHeight="466.0" prefWidth="1057.0" tabClosingPolicy="UNAVAILABLE"
+                         BorderPane.alignment="CENTER">
+                    <tabs>
+                        <Tab fx:id="listPacientes" text="ListadoPacientes">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="1098.0">
+                                    <children>
+                                        <Pane prefHeight="55.0" prefWidth="1034.0">
+                                            <children>
+                                                <JFXTextField fx:id="txtSearch" layoutX="14.0" layoutY="13.0"
+                                                              prefHeight="33.0" prefWidth="407.0"
+                                                              promptText="BUSCAR..."/>
+                                                <Button fx:id="btnUpdate" layoutX="740.0" layoutY="11.0"
+                                                        mnemonicParsing="false" onAction="#updatePaciente"
+                                                        text="Actualizar">
+                                                    <styleClass>
+                                                        <String fx:value="btn"/>
+                                                        <String fx:value="btn-update"/>
+                                                    </styleClass>
+                                                </Button>
+                                                <Button fx:id="btnEliminar" layoutX="841.0" layoutY="11.0"
+                                                        mnemonicParsing="false" onAction="#removePaciente"
+                                                        text="Eliminar">
+                                                    <styleClass>
+                                                        <String fx:value="btn"/>
+                                                        <String fx:value="btn-remove"/>
+                                                    </styleClass>
+                                                </Button>
+                                                <Button fx:id="btnNew" layoutX="936.0" layoutY="11.0"
+                                                        mnemonicParsing="false" onAction="#newPaciente" text="Nuevo...">
+                                                    <styleClass>
+                                                        <String fx:value="btn"/>
+                                                        <String fx:value="btn-new"/>
+                                                    </styleClass>
+                                                </Button>
+                                                <Button layoutX="426.0" layoutY="26.0" mnemonicParsing="false"
+                                                        onAction="#consultarFuncionarios" text="Consultar"/>
+                                            </children>
+                                        </Pane>
+                                        <TableView fx:id="pacientes" layoutX="14.0" layoutY="55.0" prefHeight="379.0"
+                                                   prefWidth="1008.0">
+                                            <columns>
+                                                <TableColumn fx:id="idPacientes" editable="false" prefWidth="185.0"
+                                                             text="ID"/>
+                                                <TableColumn fx:id="nombrePaciente" editable="false" prefWidth="186.0"
+                                                             text="Nombre"/>
+                                                <TableColumn fx:id="apellidoPaciente" editable="false" prefWidth="153.0"
+                                                             text="Apellido"/>
+                                                <TableColumn fx:id="fechaPaciente" editable="false" minWidth="0.0"
+                                                             prefWidth="142.0" text="Fecha Ingreso"/>
+                                                <TableColumn fx:id="telefonoPaciente" editable="false" prefWidth="153.0"
+                                                             text="Telefono"/>
+                                                <TableColumn fx:id="emailPaciente" prefWidth="188.0" text="Email"/>
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="actualizarPaciente" disable="true" text="Actualizar">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="detallePaciente" disable="true" text="Detalle">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0"/>
+                            </content>
+                        </Tab>
+                    </tabs>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="50.0"/>
+                    </BorderPane.margin>
+                    <opaqueInsets>
+                        <Insets/>
+                    </opaqueInsets>
+                </TabPane>
+            </center>
+        </BorderPane>
+    </children>
 </AnchorPane>

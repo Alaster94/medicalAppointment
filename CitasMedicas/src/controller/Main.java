@@ -18,7 +18,7 @@ public class Main extends Application {
 //    private static Connection conexion;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
+    public void start(Stage primaryStage) throws Exception {
         primaryStage.setResizable(false);//Ocultar la opcion de maximizar
         Parent root = FXMLLoader.load(getClass().getResource("../view/sample.fxml"));
         primaryStage.setTitle("Login");
@@ -27,6 +27,26 @@ public class Main extends Application {
 
     }
 
+<<<<<<< HEAD
+=======
+    private void abrirConexion() {
+        try {
+            conexion = DriverManager.getConnection(CONNECTION_STRING, USUARIO, CLAVE);
+            JOptionPane.showMessageDialog(null, "Exito");
+
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "La conexxion a la base de datos no fue establecida");
+//            e.printStackTrace();
+        }
+    }
+
+
+    public static Connection getConexion() {
+        return conexion;
+    }
+
+
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     public static void main(String[] args) {
         launch(args);
     }

@@ -25,6 +25,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+<<<<<<< HEAD
 public class newMedicoController implements Initializable{
     @FXML    private JFXTextField txtNombreMedico;
     @FXML    private JFXTextField txtApellidoMedico;
@@ -44,6 +45,23 @@ public class newMedicoController implements Initializable{
 
     @FXML
     private Button returnList;
+=======
+public class newMedicoController implements Initializable {
+    @FXML
+    private JFXTextField txtNombreMedico;
+    @FXML
+    private JFXTextField txtApellidoMedico;
+    @FXML
+    private JFXTextField txtEmailMedico;
+    @FXML
+    private JFXTextField txtDireccionMedico;
+    @FXML
+    private JFXTextField txtIdentidadMedico;
+    @FXML
+    private JFXTextField txtTelefonoMedico;
+    @FXML
+    private JFXComboBox<Areas> cmbMedicoArea;
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 
     //Colecciones
     private ObservableList<Areas> listaAreas;
@@ -77,6 +95,7 @@ public class newMedicoController implements Initializable{
     }
 
     public void registerMedico(ActionEvent event) throws SQLException, ClassNotFoundException {
+<<<<<<< HEAD
         //Crear una nueva instancia del tipo Medico
         boolean isIdentidadEmpty = validation.TextFieldValidation.istexFieldTypeNumber(txtIdentidadMedico, error_Identidad,"Campo Vacio o Incorrecto.");
         boolean isValidEmail = TextFieldValidation.isValidEmail(txtEmailMedico,error_EmailMedico,"Email Invalido.");
@@ -102,6 +121,28 @@ public class newMedicoController implements Initializable{
                 mensaje.setHeaderText("Resultado:");
                 mensaje.show();
             }
+=======
+        //Crear una nueva instancia del tipo Alumno
+        Medico a = new Medico(txtIdentidadMedico.getText(),
+                txtNombreMedico.getText(),
+                txtApellidoMedico.getText(),
+                txtDireccionMedico.getText(),
+                txtEmailMedico.getText(),
+                txtTelefonoMedico.getText(),
+                cmbMedicoArea.getSelectionModel().getSelectedItem());
+        //Llamar al metodo guardarRegistro de la clase Alumno
+//        conexion.establecerConexion();
+        int resultado = a.guardarRegistro(conexion.getConnection());
+//        conexion.cerrarConexion();
+
+        if (resultado == 1) {
+            listaMedicos.add(a);
+            Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+            mensaje.setTitle("Registro agregado");
+            mensaje.setContentText("El registro ha sido agregado exitosamente");
+            mensaje.setHeaderText("Resultado:");
+            mensaje.show();
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
         }
     }
 

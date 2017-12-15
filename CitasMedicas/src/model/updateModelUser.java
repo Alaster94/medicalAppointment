@@ -12,7 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class updateModelUser implements Initializable{
+public class updateModelUser implements Initializable {
 
 //    public static ResultSet mostrarUsuario(String id){
 //        try {

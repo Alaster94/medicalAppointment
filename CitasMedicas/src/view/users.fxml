@@ -9,67 +9,74 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="521.0" prefWidth="1086.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.usersController">
-   <children>
-      <BorderPane prefHeight="521.0" prefWidth="1086.0" styleClass="body">
-         <center>
-            <Pane prefHeight="323.0" prefWidth="977.0" BorderPane.alignment="CENTER">
-               <children>
-                  <Pane layoutY="-4.0" prefHeight="55.0" prefWidth="1086.0">
-                     <children>
-                        <JFXTextField fx:id="txtSearch" layoutX="14.0" layoutY="13.0" prefHeight="35.0" prefWidth="400.0" promptText="BUSCAR..." />
-                        <Button fx:id="btnUpdate" layoutX="792.0" layoutY="12.0" mnemonicParsing="false" onAction="#updateAction" text="Actualizar">
-                           <styleClass>
-                              <String fx:value="btn" />
-                              <String fx:value="btn-update" />
-                           </styleClass>
-                        </Button>
-                        <Button fx:id="btnRemove" layoutX="893.0" layoutY="12.0" mnemonicParsing="false" onAction="#removeAction" text="Eliminar">
-                           <styleClass>
-                              <String fx:value="btn" />
-                              <String fx:value="btn-remove" />
-                           </styleClass>
-                        </Button>
-                        <Button fx:id="btnNew" layoutX="988.0" layoutY="12.0" mnemonicParsing="false" onAction="#newAction" text="Nuevo...">
-                           <styleClass>
-                              <String fx:value="btn" />
-                              <String fx:value="btn-new" />
-                           </styleClass>
-                        </Button>
-                     </children>
-                  </Pane>
-                  <TableView fx:id="usersTable" layoutX="13.0" layoutY="51.0" prefHeight="307.0" prefWidth="1057.0">
-                     <columns>
-                        <TableColumn fx:id="nombres" prefWidth="125.0" text="Nombres" />
-                        <TableColumn fx:id="apellidos" prefWidth="125.0" text="Apellidos" />
-                        <TableColumn fx:id="birthDate" prefWidth="140.0" text="F. Nac." />
-                        <TableColumn fx:id="direccion" prefWidth="123.0" text="Direccion" />
-                        <TableColumn fx:id="telefono" prefWidth="122.0" text="Telefono" />
-                        <TableColumn fx:id="email" prefWidth="122.0" text="Email" />
-                        <TableColumn fx:id="usuario" prefWidth="110.0" text="Usuario" />
-                        <TableColumn fx:id="password" prefWidth="75.0" text="Password" />
-                        <TableColumn fx:id="idUsuarios" prefWidth="97.0" text="Estado" />
-                     </columns>
-                  </TableView>
-               </children>
-            </Pane>
-         </center>
-         <top>
-            <Pane prefHeight="123.0" prefWidth="843.0" BorderPane.alignment="CENTER">
-               <children>
-                  <ImageView fitHeight="102.0" fitWidth="113.0" layoutX="37.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icon/sidePic.png" />
-                     </image>
-                  </ImageView>
-                  <Label layoutX="475.0" layoutY="42.0" styleClass="title-text" text="USUARIOS" />
-               </children>
-            </Pane>
-         </top>
-      </BorderPane>
-   </children>
-   <stylesheets>
-      
-      <URL value="@../style/MainStyle.css" />
-   </stylesheets>
+<AnchorPane prefHeight="521.0" prefWidth="1086.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="controller.usersController">
+    <children>
+        <BorderPane prefHeight="521.0" prefWidth="1086.0" styleClass="body">
+            <center>
+                <Pane prefHeight="323.0" prefWidth="977.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane layoutY="-4.0" prefHeight="55.0" prefWidth="1086.0">
+                            <children>
+                                <JFXTextField fx:id="txtSearch" layoutX="14.0" layoutY="13.0" prefHeight="35.0"
+                                              prefWidth="400.0" promptText="BUSCAR..."/>
+                                <Button fx:id="btnUpdate" layoutX="792.0" layoutY="12.0" mnemonicParsing="false"
+                                        onAction="#updateAction" text="Actualizar">
+                                    <styleClass>
+                                        <String fx:value="btn"/>
+                                        <String fx:value="btn-update"/>
+                                    </styleClass>
+                                </Button>
+                                <Button fx:id="btnRemove" layoutX="893.0" layoutY="12.0" mnemonicParsing="false"
+                                        onAction="#removeAction" text="Eliminar">
+                                    <styleClass>
+                                        <String fx:value="btn"/>
+                                        <String fx:value="btn-remove"/>
+                                    </styleClass>
+                                </Button>
+                                <Button fx:id="btnNew" layoutX="988.0" layoutY="12.0" mnemonicParsing="false"
+                                        onAction="#newAction" text="Nuevo...">
+                                    <styleClass>
+                                        <String fx:value="btn"/>
+                                        <String fx:value="btn-new"/>
+                                    </styleClass>
+                                </Button>
+                            </children>
+                        </Pane>
+                        <TableView fx:id="usersTable" layoutX="13.0" layoutY="51.0" prefHeight="307.0"
+                                   prefWidth="1057.0">
+                            <columns>
+                                <TableColumn fx:id="nombres" prefWidth="125.0" text="Nombres"/>
+                                <TableColumn fx:id="apellidos" prefWidth="125.0" text="Apellidos"/>
+                                <TableColumn fx:id="birthDate" prefWidth="140.0" text="F. Nac."/>
+                                <TableColumn fx:id="direccion" prefWidth="123.0" text="Direccion"/>
+                                <TableColumn fx:id="telefono" prefWidth="122.0" text="Telefono"/>
+                                <TableColumn fx:id="email" prefWidth="122.0" text="Email"/>
+                                <TableColumn fx:id="usuario" prefWidth="110.0" text="Usuario"/>
+                                <TableColumn fx:id="password" prefWidth="75.0" text="Password"/>
+                                <TableColumn fx:id="idUsuarios" prefWidth="97.0" text="Estado"/>
+                            </columns>
+                        </TableView>
+                    </children>
+                </Pane>
+            </center>
+            <top>
+                <Pane prefHeight="123.0" prefWidth="843.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="102.0" fitWidth="113.0" layoutX="37.0" layoutY="11.0" pickOnBounds="true"
+                                   preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/sidePic.png"/>
+                            </image>
+                        </ImageView>
+                        <Label layoutX="475.0" layoutY="42.0" styleClass="title-text" text="USUARIOS"/>
+                    </children>
+                </Pane>
+            </top>
+        </BorderPane>
+    </children>
+    <stylesheets>
+
+        <URL value="@../style/MainStyle.css"/>
+    </stylesheets>
 </AnchorPane>

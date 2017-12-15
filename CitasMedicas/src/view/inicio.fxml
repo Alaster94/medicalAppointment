@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
 <?import com.jfoenix.controls.JFXButton?>
+=======
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
@@ -40,17 +43,20 @@
       </JFXButton>
       <Pane fx:id="homePane" layoutX="188.0" layoutY="44.0" prefHeight="88.0" prefWidth="1019.0">
          <children>
+<<<<<<< HEAD
             <Label layoutX="187.0" layoutY="18.0" prefHeight="42.0" prefWidth="500.0" style="-fx-border-width: 0 0 3 15; -fx-border-color: #298DC5;" text="MedSchedule" textFill="#f0f0f5">
                <font>
                   <Font name="System Bold" size="34.0" />
+=======
+            <Label layoutX="77.0" layoutY="23.0" prefHeight="42.0" prefWidth="500.0" style="-fx-border-width: 0 0 3 15; -fx-border-color: #298DC5;" text="Medical Schedule" textFill="#f0f0f5">
+               <font>
+                  <Font name="System Bold" size="37.0" />
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
                </font>
                <padding>
                   <Insets left="50.0" />
                </padding>
             </Label>
-            <Label text="Label" />
-            <Label text="Label" />
-            <Label text="Label" />
          </children>
       </Pane>
       <ImageView fitHeight="251.0" fitWidth="350.0" layoutX="-45.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">

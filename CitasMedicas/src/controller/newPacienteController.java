@@ -8,6 +8,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+<<<<<<< HEAD
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
@@ -21,6 +22,16 @@ import model.Pacientes;
 import validation.TextFieldValidation;
 
 import java.io.IOException;
+=======
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.ToggleGroup;
+import model.Areas;
+import model.Medico;
+import model.Pacientes;
+
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
@@ -28,19 +39,30 @@ import java.util.ResourceBundle;
 
 public class newPacienteController implements Initializable {
     //TextField
-    @FXML private JFXTextField txtIdentidadPaciente;
-    @FXML private JFXTextField txtNombrePaciente;
-    @FXML private JFXTextField txtTelefonoPaciente;
-    @FXML private JFXTextField txtApellidoPaciente;
-    @FXML private JFXTextField txtDireccionPaciente;
-    @FXML private JFXTextField txtEmailPaciente;
+    @FXML
+    private JFXTextField txtIdentidadPaciente;
+    @FXML
+    private JFXTextField txtNombrePaciente;
+    @FXML
+    private JFXTextField txtTelefonoPaciente;
+    @FXML
+    private JFXTextField txtApellidoPaciente;
+    @FXML
+    private JFXTextField txtDireccionPaciente;
+    @FXML
+    private JFXTextField txtEmailPaciente;
     //RadioButton
-    @FXML private JFXRadioButton rbtFemenino;
-    @FXML private JFXRadioButton rbtMasculino;
-    @FXML private ToggleGroup GrupoGenero;
+    @FXML
+    private JFXRadioButton rbtFemenino;
+    @FXML
+    private JFXRadioButton rbtMasculino;
+    @FXML
+    private ToggleGroup GrupoGenero;
     //DatePicker
-    @FXML private DatePicker dpFechaIngreso;
+    @FXML
+    private DatePicker dpFechaIngreso;
     //ComboBox
+<<<<<<< HEAD
     @FXML private JFXComboBox<Medico> cmbMedico;
 
     @FXML private Button returnList;
@@ -51,6 +73,10 @@ public class newPacienteController implements Initializable {
     @FXML    private Label error_TelMedico;
     @FXML    private Label error_Apellido;
     @FXML    private Label error_Email;
+=======
+    @FXML
+    private JFXComboBox<Medico> cmbMedico;
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 
     //Colecciones
     private ObservableList<Medico> listaMedicos;
@@ -68,8 +94,13 @@ public class newPacienteController implements Initializable {
         try {
             Medico.llenarInformacionMedicos(conexion.getConnection(), listaMedicos);
             Pacientes.llenarInformacionPacientes(conexion.getConnection(), listaPacientes);
+<<<<<<< HEAD
         } catch (ClassNotFoundException a) {
             a.printStackTrace();
+=======
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -79,6 +110,7 @@ public class newPacienteController implements Initializable {
     }
 
     public void registerPaciente(ActionEvent event) throws SQLException, ClassNotFoundException {
+<<<<<<< HEAD
         boolean isIdentidadEmpty = TextFieldValidation.istexFieldTypeNumber(txtIdentidadPaciente, error_Identidad,"Campo Vacio o Incorrecto.");
         boolean isValidEmail = TextFieldValidation.isValidEmail(txtEmailPaciente,error_Email,"Email Invalido.");
         boolean isNombreEmpty = validation.TextFieldValidation.isTextFieldNotEmpty(txtNombrePaciente, error_Nombre,"Nombre del Paciente Requerido.");
@@ -106,6 +138,27 @@ public class newPacienteController implements Initializable {
                 mensaje.setHeaderText("Resultado:");
                 mensaje.show();
             }
+=======
+        //Crear una nueva instancia del tipo Paciente
+        Pacientes p = new Pacientes(txtIdentidadPaciente.getText(),
+                txtNombrePaciente.getText(),
+                txtApellidoPaciente.getText(),
+                rbtFemenino.isSelected() ? "Femenino" : "Masculino",
+                Date.valueOf(dpFechaIngreso.getValue()),
+                txtDireccionPaciente.getText(),
+                txtEmailPaciente.getText(),
+                txtTelefonoPaciente.getText(),
+                cmbMedico.getSelectionModel().getSelectedItem());
+        //Llamar al metodo guardarRegistro de la clase Alumno
+        int resultado = p.guardarPaciente(conexion.getConnection());
+        if (resultado == 1) {
+            listaPacientes.add(p);
+            Alert mensaje = new Alert(Alert.AlertType.INFORMATION);
+            mensaje.setTitle("Registro agregado");
+            mensaje.setContentText("El registro ha sido agregado exitosamente");
+            mensaje.setHeaderText("Resultado:");
+            mensaje.show();
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
         }
     }
 
@@ -138,4 +191,6 @@ public class newPacienteController implements Initializable {
             e.printStackTrace();
         }
     }
+
+
 }
