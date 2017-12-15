@@ -1,3 +1,6 @@
+.error{
+    -fx-background-color: #578aff, linear-gradient(to bottom, derive(#8d57ff, 50%)5%,derive(#6466ff, 10%)2%);
+}
 #paneLogin{
     -fx-background-image: url("../image/loginPane.jpg");
     -fx-background-repeat: stretch;
@@ -20,7 +23,7 @@
 }
 
 #PaneHome{
-    -fx-background-image: url("../image/paneLogin.jpg");
+    -fx-background-image: url("../image/paneLoginn.jpg");
     -fx-background-repeat: stretch;
     /*-fx-background-position: center center;*/
     -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.75) , 0, 0.0 , 0 , -1 );
@@ -94,14 +97,16 @@
 }
 .btn-new:hover {
     -fx-background-color: #459C45;
-
 }
 .btn-update {
     -fx-background-color: #5BC0DE;
     -fx-text-fill: #f9f9f9;
 
 }
-
+.btn-return{
+    -fx-background-color: #e2fbe1;
+    -fx-text-fill: #e2fbe1;
+}
 .btn-update:hover {
     -fx-background-color: #4AA2BD;
     -fx-outline: none;
@@ -122,11 +127,19 @@
     -fx-background-color: #BA3D13;
     -fx-outline: none;
 }
-.btn-search {
+.btn-print {
     -fx-background-color: #428BCA;
     -fx-text-fill: #f9f9f9;
 }
-.btn-search:hover {
+.btn-print:hover {
+    -fx-background-color: #3879B2;
+    -fx-outline: none;
+}
+.btn-view {
+    -fx-background-color: #428BCA;
+    -fx-text-fill: #f9f9f9;
+}
+.btn-view:hover {
     -fx-background-color: #3879B2;
     -fx-outline: none;
 }
@@ -145,21 +158,17 @@
     -fx-background-color: #3879B2;
     -fx-outline: none;
 }
-#buscar{
 
+.table-cell {
+   -fx-padding: 0.5em 0.5em 0.1em 0.3em;
+   -fx-border-color: -fx-box-border -fx-box-border transparent transparent;
+   -fx-font: 13px "Segoe UI";
+   -fx-border-insets: 0;
 }
 
-
-   .table-cell {
-       -fx-padding: 0.5em 0.5em 0.1em 0.3em;
-       -fx-border-color: -fx-box-border -fx-box-border transparent transparent;
-       -fx-font: 13px "Segoe UI";
-       -fx-border-insets: 0;
-   }
-
-   .table-cell:hover {
-       -fx-background-color: #9900ff;
-   }
+.table-cell:hover {
+   -fx-background-color: #4f42ff;
+}
 
 
 .table-row-cell:empty, .table-cell:empty:hover {
@@ -177,7 +186,7 @@
 
 
 .table-view:row-selection .table-row-cell:filled:selected:hover {
-   -fx-background-color: rgba(228, 183, 236, 0.90);
+   -fx-background-color: rgba(65, 137, 243, 0.9);
 }
 
 
@@ -223,12 +232,12 @@
    -fx-border-insets: 0;
 }
 
-.table-cell#fechaPaciente {
-    -fx-background-color: palegreen;
+.table-cell#clmnCitaEstado {
+    -fx-background-color: #F78181;
 }
 
-.table-view .column-header.fechaPaciente {
-    -fx-base: palegreen;
+.table-view .column-header.clmnCitaEstado {
+    -fx-base: #fb2d25;
 }
 
 /*.tab-pane .tab-header-area .tab-header-background {*/
@@ -295,4 +304,172 @@
     /* -fx-padding: 0.416667em 0.166667em 0.0em 0.833em; /* 5 2 0 10 */
     -fx-padding: 0.416667em 0.166667em 0.0em 0.0em; /* overridden as 5 2 0 0 */
 }
+
+
+.bar-chart {
+    -fx-bar-gap: 6;
+    -fx-category-gap: 10;
+}
+
+.chart-bar.default-color0 {
+    -fx-bar-fill: blue;
+}
+
+.chart-bar.default-color1 {
+    -fx-bar-fill: green;
+}
+
+.chart-bar.default-color2 {
+    -fx-bar-fill: red;
+}
+
+/*Nuevo*/
+
+.chart {
+    -fx-clockwise: false;
+    -fx-pie-label-visible: true;
+    -fx-label-line-length: 25;
+    -fx-start-angle: 90;
+    -fx-legend-side: right;
+}
+
+.chart-pie-label {
+    -fx-font-size: 14px;
+    -fx-font-family: Roboto Light;
+}
+
+.chart-pie-label-line {
+    -fx-fill: red;
+}
+
+/*
+.chart-content {
+    -fx-padding: 10px;
+}
+*/
+
+.chart-title {
+    -fx-font-family: Roboto;
+    -fx-font-size: 28px;
+}
+
+.chart-legend-item-symbol {
+    -fx-shape: "M0 -3.5 v7 l 4 -3.5z";
+}
+
+/*
+.default-color0.chart-pie {
+    -fx-pie-color:blue;
+}
+.default-color1.chart-pie {
+    -fx-pie-color:red;
+}
+.default-color2.chart-pie {
+    -fx-pie-color:green;
+}
+*/
+
+.chart-legend {
+    -fx-background-color: #f0e68c;
+    -fx-background-radius: 4px;
+    -fx-border-color: #696969;
+    -fx-border-width: 1;
+    -fx-border-radius: 4px;
+}
+
+
+
+/* Material Design Button Styles from Gui Garage */
+
+/** {*/
+    /*-fx-basic-color: #26A69A;*/
+    /*-fx-darker-color: derive(-fx-basic-color, -40% );*/
+    /*-fx-lighter-color: derive(-fx-basic-color, 80% );*/
+    /*-fx-lightest-color: derive(-fx-basic-color, 95% );*/
+    /*-fx-dark-text-color: rgb(47.0, 52.0, 57.0);*/
+    /*-fx-text-color: rgb(67.0, 72.0, 77.0);*/
+    /*-fx-light-gray-color: rgb(200.0, 200.0, 200.0);*/
+    /*-fx-lightest-gray-color: rgb(230.0, 230.0, 230.0);*/
+/*}*/
+
+/*!*.text {*!*/
+    /*!*-fx-font-family: 'Arial';*!*/
+/*!*}*!*/
+
+/*!*.icon-label .text {*!*/
+    /*!*-fx-font-family: FontAwesome !important;*!*/
+/*!*}*!*/
+
+/*.table-view, .table-view .column-header {*/
+    /*-fx-background-color: transparent;*/
+    /*-fx-border-color:silver;*/
+    /*-fx-border-width: 0 0 2 0;*/
+    /*-fx-prompt-text-fill: -fx-lightest-color;*/
+    /*-fx-highlight-fill: -fx-lightest-color;*/
+    /*-fx-font-size: 13px;*/
+    /*-fx-text-fill: -fx-text-color;*/
+/*}*/
+
+/*.table-view {*/
+    /*-fx-table-header-border-color: transparent;*/
+    /*!*-fx-table-cell-border-color: transparent;*!*/
+    /*!*-fx-background-color: transparent;*!*/
+/*}*/
+
+/*.workbench-view > .table-view {*/
+    /*-fx-padding: 16px;*/
+/*}*/
+
+/*.table-view .show-hide-columns-button {*/
+    /*-fx-background-color: transparent;*/
+/*}*/
+
+/*.table-view .column-header .label, .table-view .filler .label, .table-view .column-drag-header .label {*/
+    /*-fx-alignment: baseline-left;*/
+/*}*/
+
+/*.table-view .column-header-background {*/
+    /*-fx-background-color: transparent;*/
+/*}*/
+
+/*.table-row-cell {*/
+    /*!* -fx-background-color: transparent;*!*/
+/*}*/
+
+/*.table-row-cell:hover {*/
+    /*-fx-background-color: -fx-lightest-gray-color;*/
+/*}*/
+
+/*.table-row-cell:selected {*/
+    /*-fx-background-color: -fx-light-gray-color;*/
+/*}*/
+
+/*.table-row-cell:selected:hover {*/
+    /*-fx-background-color: -fx-light-gray-color;*/
+/*}*/
+
+/*.table-row-cell:hover:focused {*/
+    /*-fx-background-color: -fx-lightest-gray-color;*/
+/*}*/
+
+/*.table-row-cell:selected:focused {*/
+    /*-fx-background-color: -fx-lighter-color;*/
+/*}*/
+
+/*.table-row-cell:selected:hover:focused {*/
+    /*-fx-background-color: -fx-lighter-color;*/
+/*}*/
+
+/*.table-cell, .table-cell:even, .table-cell:odd {*/
+    /*-fx-border-color: transparent;*/
+    /*-fx-border-width: 0;*/
+    /*-fx-font-size: 13px;*/
+    /*-fx-text-fill: -fx-text-color;*/
+    /*-fx-padding: 8px 4px 8px 4px;*/
+    /*-fx-wrap-text: true;*/
+/*}*/
+
+/*.media-table-cell {*/
+    /*-fx-padding: 8px 8px 8px 8px !important;*/
+/*}*/
 

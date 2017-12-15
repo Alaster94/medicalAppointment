@@ -2,6 +2,7 @@ package controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXPasswordField;
+import com.jfoenix.controls.JFXRadioButton;
 import com.jfoenix.controls.JFXTextField;
 import dba.DBConnection;
 import javafx.animation.PauseTransition;
@@ -12,6 +13,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -54,15 +56,30 @@ public class Controller implements Initializable {
     @FXML
     private JFXButton btnCitas;
 
+
     private Connection con = null;
     private DBConnection handler;
     private PreparedStatement pst = null;
     private ResultSet rs = null;
+    private static Controller instance;
+    public Controller(){
+        instance = this;
+    }
+
+    public static Controller getInstance() {
+        return instance;
+    }
+
+    public String username(){
+        return txtUsername.getText();
+    }
+
 
     public void loginAction(ActionEvent actionEvent) throws IOException {
+
         imgProgress.setVisible(true);
         PauseTransition pt = new PauseTransition();
-        pt.setDuration(Duration.seconds(3));
+        pt.setDuration(Duration.seconds(1));
         pt.setOnFinished(event -> {
 //            System.out.println("Inicio de secion correcto");
             //Retrive Data from Database
@@ -73,7 +90,9 @@ public class Controller implements Initializable {
             } catch (SQLException e) {
                 e.printStackTrace();
             }
-            String q1 = "SELECT * from usuarios where usuario=? and password=?";
+            String q1 = "SELECT U.idUsuarios, U.nombres, U.apellidos, U.birthDate, U.telefono, U.direccion, U.email, U.usuario, U.password, U.estado, T.id, T.nombre FROM usuarios U INNER JOIN tipousuario T ON (U.tipoUsuario_id = T.id) where usuario=? and password=?";
+//            ResultSet resultado = stnt.executeQuery(sql);
+//            String q1 = "SELECT * from usuarios where usuario=? and password=?";
 
             try {
                 pst = con.prepareStatement(q1);

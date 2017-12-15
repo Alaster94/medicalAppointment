@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="796.0" prefWidth="1165.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.citaController">
+   <children>
+      <BorderPane prefHeight="796.0" prefWidth="1165.0" styleClass="body">
+         <center>
+            <TabPane fx:id="tabPaneCitass" onMouseClicked="#registroCita" prefHeight="466.0" prefWidth="1057.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <tabs>
+                  <Tab fx:id="listCitas" text="ListadoCitas">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="1098.0">
+                           <children>
+                              <Pane prefHeight="55.0" prefWidth="1146.0">
+                                 <children>
+                                    <JFXTextField fx:id="txtSearchCita" layoutX="14.0" layoutY="13.0" onKeyReleased="#consultarCitas" prefHeight="33.0" prefWidth="373.0" promptText="BUSCAR..." />
+                                    <Button fx:id="btnUpdate" layoutX="792.0" layoutY="12.0" mnemonicParsing="false" onAction="#updateCita" text="Actualizar">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn-update" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="btnEliminar" layoutX="894.0" layoutY="11.0" mnemonicParsing="false" onAction="#eliminarCita" text="Eliminar">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn-remove" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="btnNew" layoutX="987.0" layoutY="10.0" mnemonicParsing="false" onAction="#newCita" text="Nuevo...">
+                                       <styleClass>
+                                          <String fx:value="btn" />
+                                          <String fx:value="btn-new" />
+                                       </styleClass>
+                                    </Button>
+                                    <Button fx:id="view" ellipsisString="" layoutX="1081.0" layoutY="9.0" mnemonicParsing="false" onAction="#viewCita" prefHeight="41.0" prefWidth="47.0" styleClass="btn-view" wrapText="true">
+                                       <graphic>
+                                          <ImageView fitHeight="27.0" fitWidth="27.0" styleClass="btn-search">
+                                             <image>
+                                                <Image url="@../icon/icons8_Invisible_50px_1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <TableView fx:id="tblViewCitas" layoutX="13.0" layoutY="66.0" prefHeight="499.0" prefWidth="1116.0">
+                                 <columns>
+                                    <TableColumn fx:id="clmnCitasPaciente" editable="false" prefWidth="211.0" text="Paciente" />
+                                    <TableColumn fx:id="clmnCitasMedico" editable="false" prefWidth="193.0" text="Medico" />
+                                    <TableColumn fx:id="clmnFecha" editable="false" prefWidth="153.0" text="Fecha Cita" />
+                                    <TableColumn fx:id="clmnNota" editable="false" minWidth="0.0" prefWidth="230.0" text="Nota" />
+                                    <TableColumn fx:id="clmnEstadoPago" editable="false" prefWidth="166.0" text="Estado Pago" />
+                                    <TableColumn fx:id="clmnEstadoCita" prefWidth="162.0" text="Estado Cita" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="nuevaCita" disable="true" text="Nueva Cita">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="57.0" layoutY="133.0" text="Paciente:" />
+                              <JFXTextArea fx:id="notaCita" layoutX="129.0" layoutY="313.0" prefHeight="47.0" prefWidth="405.0" />
+                              <JFXTextArea fx:id="asuntoCita" layoutX="140.0" layoutY="177.0" prefHeight="47.0" prefWidth="337.0" />
+                              <DatePicker fx:id="citaFecha" layoutX="139.0" layoutY="264.0" />
+                              <JFXTextArea fx:id="medicamentoCita" layoutX="683.0" layoutY="160.0" prefHeight="47.0" prefWidth="453.0" />
+                              <Label layoutX="582.0" layoutY="112.0" text="Sintomas:" />
+                              <Label layoutX="61.0" layoutY="58.0" styleClass="title-text" text="Nueva Cita:" />
+                              <Label layoutX="582.0" layoutY="298.0" text="Estado Pago:" />
+                              <Label layoutX="57.0" layoutY="271.0" text="Fecha Cita:" />
+                              <Button layoutX="950.0" layoutY="496.0" mnemonicParsing="false" onAction="#btnGuardarCita" text="Guardar">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-search" />
+                                 </styleClass>
+                              </Button>
+                              <Button layoutX="799.0" layoutY="497.0" mnemonicParsing="false" onAction="#cancelAction" text="Cancelar">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-remove" />
+                                 </styleClass>
+                              </Button>
+                              <Label layoutX="582.0" layoutY="173.0" text="Medicamento:" />
+                              <Label layoutX="57.0" layoutY="402.0" text="Diagnostico:" />
+                              <Label layoutX="57.0" layoutY="332.0" text="Nota:" />
+                              <Label layoutX="57.0" layoutY="200.0" text="Asunto:" />
+                              <Label fx:id="lbIdCitaPaciente1" layoutX="343.0" layoutY="63.0" prefHeight="29.0" prefWidth="373.0" textFill="#6158b0" underline="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="582.0" layoutY="240.0" text="Estado Cita:" />
+                              <JFXTextArea fx:id="diagnosticoCita" layoutX="146.0" layoutY="378.0" prefHeight="56.0" prefWidth="469.0" />
+                              <JFXTextArea fx:id="sintomasCita" layoutX="660.0" layoutY="89.0" prefHeight="47.0" prefWidth="475.0" />
+                              <HBox layoutX="687.0" layoutY="232.0" prefHeight="37.0" prefWidth="286.0" spacing="20.0">
+                                 <children>
+                                    <JFXRadioButton fx:id="rbtCitaPendiente" text="Pendiente">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="GrupoGenero" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton fx:id="rbtCitaTerminado" text="Terminado" toggleGroup="$GrupoGenero" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox layoutX="687.0" layoutY="293.0" prefHeight="37.0" prefWidth="286.0" spacing="20.0">
+                                 <children>
+                                    <JFXRadioButton fx:id="rbtCitaPagado" text="Pagado">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="GrupoGenero1" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton fx:id="rbtCitaNoPagado" text="Pendiente" toggleGroup="$GrupoGenero1" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </HBox>
+                              <JFXTextField fx:id="nombreCitaMedico" layoutX="146.0" layoutY="482.0" prefHeight="29.0" prefWidth="306.0" />
+                              <Label layoutX="57.0" layoutY="486.0" text="Médico:" />
+                              <ComboBox fx:id="cmbCita" disable="true" layoutX="133.0" layoutY="128.0" prefHeight="31.0" prefWidth="310.0" />
+                              <Label fx:id="error_FechaCita" layoutX="187.0" layoutY="295.0" textFill="#bb3535" />
+                              <Label fx:id="error_Sintomas" layoutX="774.0" layoutY="141.0" textFill="#bb3535" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="actualizarCita" disable="true" text="Actualizar">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXTextArea fx:id="sintomas" layoutX="113.0" layoutY="419.0" prefHeight="47.0" prefWidth="427.0" />
+                              <Label layoutX="35.0" layoutY="182.0" text="Asunto:" />
+                              <JFXTextArea fx:id="asunto" layoutX="118.0" layoutY="159.0" prefHeight="47.0" prefWidth="337.0" />
+                              <Label layoutX="620.0" layoutY="274.0" text="Estado Pago:" />
+                              <Button layoutX="997.0" layoutY="492.0" mnemonicParsing="false" onAction="#btnGuardarCitaActualizada" text="Guardar">
+                                 <styleClass>
+                                    <String fx:value="btn-update" />
+                                    <String fx:value="btn-search" />
+                                 </styleClass>
+                              </Button>
+                              <Label layoutX="35.0" layoutY="442.0" text="Sintomas:" />
+                              <Label layoutX="36.0" layoutY="504.0" text="Médico:" />
+                              <JFXTextField fx:id="nombreMedico" editable="false" layoutX="122.0" layoutY="500.0" prefHeight="29.0" prefWidth="306.0" />
+                              <Label layoutX="620.0" layoutY="216.0" text="Estado Cita:" />
+                              <HBox layoutX="721.0" layoutY="268.0" prefHeight="37.0" prefWidth="286.0" spacing="20.0">
+                                 <children>
+                                    <JFXRadioButton fx:id="rbtPagado" text="Pagado">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="GrupoGenero11" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton fx:id="rbtNoPagado" text="Pendiente" toggleGroup="$GrupoGenero11" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </HBox>
+                              <Label layoutX="32.0" layoutY="240.0" text="Fecha Cita:" />
+                              <DatePicker fx:id="fecha" layoutX="114.0" layoutY="235.0" />
+                              <JFXTextArea fx:id="medicamento" layoutX="721.0" layoutY="136.0" prefHeight="47.0" prefWidth="404.0" />
+                              <Label layoutX="14.0" layoutY="26.0" styleClass="title-text" text="Actualizar Cita:" />
+                              <Label layoutX="32.0" layoutY="372.0" text="Diagnostico:" />
+                              <Label fx:id="lbIdCitaPaciente" layoutX="296.0" layoutY="31.0" prefHeight="29.0" prefWidth="373.0" textFill="#6158b0" underline="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="32.0" layoutY="300.0" text="Nota:" />
+                              <JFXTextArea fx:id="nota" layoutX="104.0" layoutY="281.0" prefHeight="47.0" prefWidth="405.0" />
+                              <JFXTextArea fx:id="diagnostico" layoutX="121.0" layoutY="348.0" prefHeight="56.0" prefWidth="469.0" />
+                              <HBox layoutX="721.0" layoutY="207.0" prefHeight="37.0" prefWidth="286.0" spacing="20.0">
+                                 <children>
+                                    <JFXRadioButton fx:id="rbtPendiente" text="Pendiente">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="GrupoGenero2" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton fx:id="rbtTerminado" text="Terminado" toggleGroup="$GrupoGenero2" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </HBox>
+                              <Label layoutX="620.0" layoutY="149.0" text="Medicamento:" />
+                              <ComboBox fx:id="cmbCitaPaciente" disable="true" layoutX="117.0" layoutY="103.0" prefHeight="31.0" prefWidth="350.0" />
+                              <Label layoutX="37.0" layoutY="108.0" text="Paciente:" />
+                              <!--<Button fx:id="btnGuardar" layoutX="864.0" layoutY="493.0" mnemonicParsing="false" onAction="#btnGuardar" text="Button" />-->
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab fx:id="detalleCita" disable="true" text="Detalle">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <JFXTextArea fx:id="detNotaCita" editable="false" layoutX="103.0" layoutY="360.0" prefHeight="47.0" prefWidth="405.0" />
+                              <Button layoutX="1012.0" layoutY="473.0" mnemonicParsing="false" onAction="#btnImprimir" prefHeight="29.0" prefWidth="0.0">
+                                 <graphic>
+                                    <ImageView fitHeight="32.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../icon/icons8_Print_50px_1.png" />
+                                       </image>
+                                    </ImageView>
+                                 </graphic>
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-search" />
+                                 </styleClass>
+                              </Button>
+                              <Label layoutX="621.0" layoutY="382.0" text="Estado Pago:" />
+                              <Label layoutX="14.0" layoutY="465.0" text="Diagnostico:" />
+                              <Label layoutX="14.0" layoutY="301.0" text="Fecha Cita:" />
+                              <JFXTextArea fx:id="detMedicamentoCita" editable="false" layoutX="722.0" layoutY="195.0" prefHeight="47.0" prefWidth="373.0" />
+                              <Label layoutX="621.0" layoutY="208.0" text="Medicamento:" />
+                              <Label layoutX="621.0" layoutY="108.0" text="Sintomas:" />
+                              <Label layoutX="14.0" layoutY="208.0" text="Asunto:" />
+                              <JFXTextField fx:id="detEstadoPagoCita" editable="false" layoutX="726.0" layoutY="379.0" prefHeight="29.0" prefWidth="317.0" />
+                              <Label layoutX="14.0" layoutY="383.0" text="Nota:" />
+                              <JFXTextArea fx:id="detAsuntoCita" editable="false" layoutX="103.0" layoutY="185.0" prefHeight="47.0" prefWidth="337.0" />
+                              <Label layoutX="14.0" layoutY="26.0" styleClass="title-text" text="Detalle Cita:" />
+                              <Label fx:id="detIdCita" layoutX="248.0" layoutY="28.0" prefHeight="29.0" prefWidth="373.0" textFill="#6158b0" underline="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <JFXTextField fx:id="detCitaEstado" editable="false" layoutX="726.0" layoutY="295.0" prefHeight="29.0" prefWidth="314.0" />
+                              <JFXTextArea fx:id="detSintomasCita" editable="false" layoutX="699.0" layoutY="85.0" prefHeight="47.0" prefWidth="392.0" />
+                              <JFXTextField fx:id="detMedicoCita" editable="false" layoutX="103.0" layoutY="104.0" prefHeight="29.0" prefWidth="307.0" />
+                              <Label layoutX="621.0" layoutY="304.0" text="Estado Cita:" />
+                              <JFXTextArea fx:id="detDiagnosticoCita" editable="false" layoutX="103.0" layoutY="441.0" prefHeight="56.0" prefWidth="469.0" />
+                              <Label layoutX="11.0" layoutY="111.0" text="Medico:" />
+                              <JFXTextField fx:id="detCitaFecha" editable="false" layoutX="103.0" layoutY="295.0" prefHeight="29.0" prefWidth="307.0" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="50.0" />
+               </BorderPane.margin>
+            </TabPane>
+         </center>
+         <top>
+            <Pane prefHeight="116.0" prefWidth="1134.0" BorderPane.alignment="CENTER">
+               <children>
+                  <ImageView fitHeight="236.0" fitWidth="294.0" layoutX="-13.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icon/logo.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="453.0" layoutY="67.0" styleClass="title-text" text="GESTIONAR CITAS" />
+               </children>
+            </Pane>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

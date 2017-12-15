@@ -23,10 +23,14 @@ public class Medico {
         this.direccionDoctor = new SimpleStringProperty(direccionDoctor);
         this.telefonoDoctor = new SimpleStringProperty(telefonoDoctor);
         this.emailDoctor = new SimpleStringProperty(emailDoctor);
-
         this.areas = areas;
     }
 
+    public Medico(String idMedicos, String nombreDoctor) {
+        this.idMedicos = new SimpleStringProperty(idMedicos);
+        this.nombreDoctor = new SimpleStringProperty(nombreDoctor);
+
+    }
 
     public String getIdMedicos() {
         return idMedicos.get();
@@ -165,7 +169,6 @@ public class Medico {
                                 resultado.getString("direccion"),
                                 resultado.getString("email"),
                                 resultado.getString("telefono"),
-
                                 new Areas(resultado.getInt("idAreas"),
                                         resultado.getString("nombreArea")
                                 )
@@ -176,32 +179,23 @@ public class Medico {
             e.printStackTrace();
         }
     }
+    public static void eliminarRegistro(String idMedico) throws SQLException, ClassNotFoundException {
+        Connection connection = new DBConnection().getConnection();
+        String sql = "DELETE FROM medicos WHERE idMedicos = ?";
+        try {
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setString(1, idMedico);
+            statement.execute();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            throw new  RuntimeException(e);
+        }
 
-//    public int eliminarRegistro(Connection connection){
-//        try {
-//            PreparedStatement instruccion = connection.prepareStatement(
-//                    "DELETE FROM medicos WHERE idMedicos = ?"
-//            );
-//            instruccion.setString(1, idMedicos.get());
-//            return instruccion.executeUpdate();
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//            return 0;
-//        }
-//    }
-public static void eliminarRegistro(String idMedico) throws SQLException, ClassNotFoundException {
-    Connection connection = new DBConnection().getConnection();
-    String sql = "DELETE FROM medicos WHERE idMedicos = ?";
-    try {
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, idMedico);
-        statement.execute();
-        statement.close();
-    } catch (SQLException e) {
-        e.printStackTrace();
-        throw new  RuntimeException(e);
     }
-
-}
+    @Override
+    public String toString(){
+        return nombreDoctor.get()+ " ("+idMedicos.get()+")";
+    }
     
 }

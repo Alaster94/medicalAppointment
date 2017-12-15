@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.effect.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Bloom?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="PaneHome" prefHeight="787.0" prefWidth="1227.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.inicioController">
+<AnchorPane fx:id="PaneHome" prefHeight="787.0" prefWidth="1227.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.inicioController">
    <children>
       <JFXButton fx:id="btnCitas" contentDisplay="TOP" layoutX="143.0" layoutY="255.0" onAction="#actionCitas" text="CITAS" textFill="#fcf8f8" wrapText="true">
          <graphic>
@@ -39,9 +40,9 @@
       </JFXButton>
       <Pane fx:id="homePane" layoutX="188.0" layoutY="44.0" prefHeight="88.0" prefWidth="1019.0">
          <children>
-            <Label layoutX="77.0" layoutY="23.0" prefHeight="42.0" prefWidth="500.0" style="-fx-border-width: 0 0 3 15; -fx-border-color: #298DC5;" text="APPOINMENTS SYSTEM" textFill="#f0f0f5">
+            <Label layoutX="187.0" layoutY="18.0" prefHeight="42.0" prefWidth="500.0" style="-fx-border-width: 0 0 3 15; -fx-border-color: #298DC5;" text="MedSchedule" textFill="#f0f0f5">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="System Bold" size="34.0" />
                </font>
                <padding>
                   <Insets left="50.0" />
@@ -52,9 +53,9 @@
             <Label text="Label" />
          </children>
       </Pane>
-      <ImageView fitHeight="125.0" fitWidth="148.0" layoutX="65.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="251.0" fitWidth="350.0" layoutX="-45.0" layoutY="-9.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../icon/sidePic.png" />
+            <Image url="@../icon/logo.png" />
          </image>
       </ImageView>
       <JFXButton fx:id="btnPacientes" contentDisplay="TOP" layoutX="396.0" layoutY="258.0" onAction="#actionPacientes" text="PACIENTES" textFill="#fcf8f8" wrapText="true">
@@ -177,17 +178,12 @@
             </AnchorPane>
          </graphic>
       </JFXButton>
-      <Label alignment="CENTER" contentDisplay="RIGHT" layoutX="408.0" layoutY="166.0" prefHeight="48.0" prefWidth="222.0" text="Bienvenido(a), ">
+      <Label fx:id="user" alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="456.0" layoutY="167.0" prefHeight="48.0" prefWidth="402.0" textAlignment="CENTER">
          <font>
             <Font name="System Bold" size="31.0" />
          </font>
       </Label>
-      <Label alignment="TOP_LEFT" contentDisplay="RIGHT" layoutX="629.0" layoutY="168.0" prefHeight="48.0" prefWidth="222.0" text="Alaster Erazo">
-         <font>
-            <Font name="System Bold" size="31.0" />
-         </font>
-      </Label>
-      <ImageView fx:id="imgExit" fitHeight="61.0" fitWidth="61.0" layoutX="1054.0" layoutY="160.0">
+      <ImageView fx:id="imgExit" fitHeight="61.0" fitWidth="61.0" layoutX="1054.0" layoutY="160.0" onMouseClicked="#salir">
          <image>
             <Image url="@../icon/icons8_Shutdown_48px_1.png" />
          </image>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane prefHeight="521.0" prefWidth="983.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.estadoCitaController">
+    <children>
+        <BorderPane layoutX="12.0" prefHeight="512.0" prefWidth="955.0" styleClass="body">
+            <center>
+                <Pane prefHeight="398.0" prefWidth="975.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Pane layoutY="-4.0" prefHeight="55.0" prefWidth="894.0">
+                            <children>
+                                <JFXTextField fx:id="txtSearch" layoutX="14.0" layoutY="13.0" onKeyReleased="#consultar" prefHeight="35.0" prefWidth="400.0" promptText="BUSCAR..." />
+                            </children>
+                        </Pane>
+                        <TableView fx:id="estadoCitaTable" layoutX="13.0" layoutY="51.0" prefHeight="320.0" prefWidth="938.0">
+                            <columns>
+                                <TableColumn fx:id="clmnPaciente" prefWidth="241.0" text="PACIENTE" />
+                                <TableColumn fx:id="clmnMedico" prefWidth="225.0" text="MEDICO" />
+                                <TableColumn fx:id="clmnFechaCita" prefWidth="159.0" text="FECHA CITA" />
+                                <TableColumn fx:id="clmnPagoEstado" prefWidth="147.0" text="ESTADO PAGO" />
+                                <TableColumn fx:id="clmnCitaEstado" prefWidth="165.0" text="ESTADO CITA" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </Pane>
+            </center>
+            <top>
+                <Pane prefHeight="123.0" prefWidth="1006.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="138.0" fitWidth="213.0" layoutX="-7.0" layoutY="-2.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/logo.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="357.0" layoutY="42.0" styleClass="title-text" text="ESTADO DE CITA" />
+                    </children>
+                </Pane>
+            </top>
+        </BorderPane>
+    </children>
+    <stylesheets>
+
+        <URL value="@../style/MainStyle.css" />
+    </stylesheets>
+</AnchorPane>

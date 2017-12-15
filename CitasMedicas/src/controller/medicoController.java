@@ -112,24 +112,9 @@ public class medicoController implements Initializable{
         nombreMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("nombreDoctor"));
         apellidoMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("apellidoDoctor"));
         areaMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("areas"));
-
         emailMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("emailDoctor"));
         telefonoMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("telefonoDoctor"));
 
-        gestionarEventos();
-//        conexion.cerrarConexion();
-    }
-    public void gestionarEventos(){
-        medicos.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<Medico>() {
-            @Override
-            public void changed(ObservableValue<? extends Medico> arg0,
-                Medico valorAnterior, Medico valorSeleccionado) {
-                if(valorSeleccionado!=null){
-
-                }
-
-            }
-        });
     }
 
     public void registrosPacientes(MouseEvent mouseEvent) {
@@ -180,6 +165,7 @@ public class medicoController implements Initializable{
         Stage medicos = new Stage();
         medicos.setResizable(false);
         try {
+            btnNew.getScene().getWindow().hide();
             Parent root = FXMLLoader.load(getClass().getResource("../view/newMedico.fxml"));
             medicos.initModality(Modality.APPLICATION_MODAL);
             medicos.initOwner((Stage) ((Button) event.getSource()).getScene().getWindow());
