@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="627.0" prefWidth="981.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FXbarchartController">
+   <children>
+      <BarChart fx:id="barChart" layoutX="14.0" layoutY="35.0" prefHeight="579.0" prefWidth="954.0" title="Citas Medicas por Fecha">
+        <xAxis>
+          <CategoryAxis label="Fecha" side="BOTTOM" fx:id="x" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="y" side="LEFT" />
+        </yAxis>
+      </BarChart>
+   </children>
+</AnchorPane>

@@ -141,6 +141,15 @@ public class medicoController implements Initializable {
         medicos.setItems(listaMedicos);
         cmbAreMedico.setItems(listaAreas);
         //Enlazar columnas con atributos
+<<<<<<< HEAD
+        idMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("idMedicos"));
+        nombreMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("nombreDoctor"));
+        apellidoMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("apellidoDoctor"));
+        areaMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("areas"));
+        emailMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("emailDoctor"));
+        telefonoMedico.setCellValueFactory(new PropertyValueFactory<Medico,String>("telefonoDoctor"));
+
+=======
         idMedico.setCellValueFactory(new PropertyValueFactory<Medico, String>("idMedicos"));
         nombreMedico.setCellValueFactory(new PropertyValueFactory<Medico, String>("nombreDoctor"));
         apellidoMedico.setCellValueFactory(new PropertyValueFactory<Medico, String>("apellidoDoctor"));
@@ -164,6 +173,7 @@ public class medicoController implements Initializable {
 
             }
         });
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     }
 
     public void registrosPacientes(MouseEvent mouseEvent) {
@@ -214,6 +224,7 @@ public class medicoController implements Initializable {
         Stage medicos = new Stage();
         medicos.setResizable(false);
         try {
+            btnNew.getScene().getWindow().hide();
             Parent root = FXMLLoader.load(getClass().getResource("../view/newMedico.fxml"));
             medicos.initModality(Modality.APPLICATION_MODAL);
             medicos.initOwner((Stage) ((Button) event.getSource()).getScene().getWindow());

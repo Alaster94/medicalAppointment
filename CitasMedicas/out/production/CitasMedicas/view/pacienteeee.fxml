@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXRadioButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="683.0" prefWidth="1057.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.pacientesController">
+    <children>
+        <BorderPane prefHeight="683.0" prefWidth="1057.0" styleClass="body">
+            <top>
+                <Pane prefHeight="116.0" prefWidth="1134.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="102.0" fitWidth="113.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/sidePic.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="421.0" layoutY="23.0" styleClass="title-text" text=" PACIENTES" />
+                    </children>
+                </Pane>
+            </top>
+            <center>
+                <TabPane fx:id="tabPanePacientes" onMouseClicked="#registrosPacientes" prefHeight="466.0" prefWidth="1057.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+                    <tabs>
+                        <Tab fx:id="listPacientes" text="ListadoPacientes">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="320.0" prefWidth="1098.0">
+                                    <children>
+                                        <Pane prefHeight="55.0" prefWidth="1034.0">
+                                            <children>
+                                                <JFXTextField fx:id="txtSearch" layoutX="14.0" layoutY="13.0" onKeyReleased="#consultarPaciente" prefHeight="33.0" prefWidth="310.0" promptText="BUSCAR..." />
+                                                <Button fx:id="btnUpdate" layoutX="684.0" layoutY="13.0" mnemonicParsing="false" onAction="#updatePaciente" text="Actualizar">
+                                                    <styleClass>
+                                                        <String fx:value="btn" />
+                                                        <String fx:value="btn-update" />
+                                                    </styleClass>
+                                                </Button>
+                                                <Button fx:id="btnEliminar" layoutX="786.0" layoutY="12.0" mnemonicParsing="false" onAction="#eliminarPaciente" text="Eliminar">
+                                                    <styleClass>
+                                                        <String fx:value="btn" />
+                                                        <String fx:value="btn-remove" />
+                                                    </styleClass>
+                                                </Button>
+                                                <Button fx:id="btnNew" layoutX="879.0" layoutY="11.0" mnemonicParsing="false" onAction="#newPaciente" text="Nuevo...">
+                                                    <styleClass>
+                                                        <String fx:value="btn" />
+                                                        <String fx:value="btn-new" />
+                                                    </styleClass>
+                                                </Button>
+                                    <Button fx:id="view" layoutX="973.0" layoutY="10.0" mnemonicParsing="false" onAction="#viewPaciente" prefHeight="41.0" prefWidth="47.0" styleClass="btn-view">
+                                       <graphic>
+                                          <ImageView fitHeight="27.0" fitWidth="27.0" styleClass="btn-search">
+                                             <image>
+                                                <Image url="@../icon/icons8_Invisible_50px_1.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                            </children>
+                                        </Pane>
+                                        <TableView fx:id="pacientes" layoutX="13.0" layoutY="66.0" prefHeight="379.0" prefWidth="1008.0">
+                                            <columns>
+                                                <TableColumn fx:id="idPacient" editable="false" prefWidth="185.0" text="ID" />
+                                                <TableColumn fx:id="nombrePacient" editable="false" prefWidth="186.0" text="Nombre" />
+                                                <TableColumn fx:id="apellidoPacient" editable="false" prefWidth="153.0" text="Apellido" />
+                                                <TableColumn fx:id="fechaPaciente" editable="false" minWidth="0.0" prefWidth="142.0" text="Fecha Ingreso" />
+                                                <TableColumn fx:id="telefonoPaciente" editable="false" prefWidth="153.0" text="Telefono" />
+                                                <TableColumn fx:id="emailPaciente" prefWidth="188.0" text="Email" />
+                                            </columns>
+                                        </TableView>
+                                    </children>
+                                </AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="actualizarPaciente" disable="true" text="Actualizar">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="14.0" layoutY="26.0" styleClass="title-text" text="Actualizar Paciente:" />
+                              <JFXTextField fx:id="nombrePaciente" layoutX="133.0" layoutY="94.0" prefHeight="29.0" prefWidth="315.0" />
+                              <JFXTextField fx:id="apellidoPaciente" layoutX="133.0" layoutY="158.0" prefHeight="29.0" prefWidth="315.0" />
+                              <JFXTextField fx:id="direccionPaciente" layoutX="133.0" layoutY="362.0" prefHeight="29.0" prefWidth="317.0" />
+                              <JFXTextField fx:id="emailPacient" layoutX="606.0" layoutY="94.0" prefHeight="29.0" prefWidth="323.0" />
+                              <JFXTextField fx:id="telefonoPacient" layoutX="606.0" layoutY="158.0" prefHeight="29.0" prefWidth="327.0" />
+                              <DatePicker fx:id="fechaPacient" layoutX="133.0" layoutY="295.0" prefHeight="31.0" prefWidth="247.0" />
+                              <Label fx:id="lbIdentidad" layoutX="296.0" layoutY="31.0" prefHeight="29.0" prefWidth="373.0" textFill="#6158b0" underline="true">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="790.0" layoutY="391.0" mnemonicParsing="false" onAction="#btnGuardarPacienteActualizado" text="Guardar">
+                                 <styleClass>
+                                    <String fx:value="btn" />
+                                    <String fx:value="btn-search" />
+                                 </styleClass>
+                              </Button>
+                              <HBox layoutX="133.0" layoutY="231.0" prefHeight="37.0" prefWidth="286.0" spacing="20.0">
+                                 <children>
+                                    <JFXRadioButton fx:id="rbtMasculino" text="Masculino">
+                                       <toggleGroup>
+                                          <ToggleGroup fx:id="GrupoGenero" />
+                                       </toggleGroup>
+                                    </JFXRadioButton>
+                                    <JFXRadioButton fx:id="rbtFemenino" text="Femenino" toggleGroup="$GrupoGenero" />
+                                 </children>
+                                 <padding>
+                                    <Insets top="8.0" />
+                                 </padding>
+                              </HBox>
+                              <Label layoutX="14.0" layoutY="102.0" text="Nombre:" />
+                              <Label layoutX="14.0" layoutY="162.0" text="Apellido:" />
+                              <Label layoutX="14.0" layoutY="239.0" text="Genero:" />
+                              <Label layoutX="18.0" layoutY="300.0" text="Fecha Ingreso:" />
+                              <Label layoutX="18.0" layoutY="366.0" text="Direccion:" />
+                              <Label layoutX="524.0" layoutY="102.0" text="Email:" />
+                              <Label layoutX="524.0" layoutY="162.0" text="Telefono:" />
+                              <Label layoutX="524.0" layoutY="239.0" text="Medico:" />
+                              <ComboBox fx:id="cmbListMedico" layoutX="606.0" layoutY="234.0" prefHeight="31.0" prefWidth="337.0" />
+                           </children></AnchorPane>
+                            </content>
+                        </Tab>
+                        <Tab fx:id="detallePaciente" disable="true" text="Detalle">
+                            <content>
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Label layoutX="21.0" layoutY="14.0" styleClass="title-text" text="Detalle de Paciente" />
+                              <JFXTextField fx:id="apellido" editable="false" layoutX="124.0" layoutY="220.0" prefHeight="29.0" prefWidth="310.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="email" editable="false" layoutX="653.0" layoutY="155.0" prefHeight="29.0" prefWidth="320.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="direccion" layoutX="655.0" layoutY="94.0" prefHeight="29.0" prefWidth="304.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="genero" editable="false" layoutX="123.0" layoutY="281.0" prefHeight="29.0" prefWidth="244.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="telefono" editable="false" layoutX="653.0" layoutY="220.0" prefHeight="29.0" prefWidth="318.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <JFXTextField fx:id="identidad" editable="false" layoutX="123.0" layoutY="94.0" prefHeight="29.0" prefWidth="310.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <DatePicker fx:id="fecha" disable="true" editable="false" layoutX="123.0" layoutY="348.0" prefHeight="31.0" prefWidth="247.0" />
+                              <JFXTextField fx:id="nombre" editable="false" layoutX="125.0" layoutY="158.0" prefHeight="29.0" prefWidth="307.0">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </JFXTextField>
+                              <Label layoutX="21.0" layoutY="104.0" text="Identidad:">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="21.0" layoutY="164.0" text="Nombre:">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="21.0" layoutY="229.0" text="Apellido:">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="21.0" layoutY="290.0" text="Genero:">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="21.0" layoutY="353.0" text="Fecha:">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="566.0" layoutY="104.0" text="Direccion:">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="566.0" layoutY="167.0" text="Email:">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="566.0" layoutY="230.0" text="Telefono:">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                            </content>
+                        </Tab>
+                    </tabs>
+                    <BorderPane.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="50.0" />
+                    </BorderPane.margin>
+                    <opaqueInsets>
+                        <Insets />
+                    </opaqueInsets>
+                </TabPane>
+            </center>
+        </BorderPane>
+    </children>
+</AnchorPane>

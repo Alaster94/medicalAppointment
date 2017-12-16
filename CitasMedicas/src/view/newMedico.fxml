@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<<<<<<< HEAD
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="645.0" prefWidth="620.0" stylesheets="@../style/MainStyle.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.newMedicoController">
+   <children>
+      <Pane prefHeight="76.0" prefWidth="620.0" styleClass="note">
+         <children>
+            <Label layoutX="72.0" layoutY="19.0" styleClass="title-text" text="REGISTRO DE NUEVO MEDICO" />
+            <Button fx:id="returnList" layoutX="540.0" layoutY="12.0" mnemonicParsing="false" onAction="#returnList" prefHeight="55.0" prefWidth="65.0" styleClass="btn-return">
+               <graphic>
+                  <ImageView fitHeight="36.0" fitWidth="49.0" styleClass="btn-search">
+                     <image>
+                        <Image url="@../icon/icons8_Return_48px_2.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <padding>
+                  <Insets bottom="10.0" left="9.0" right="9.0" top="10.0" />
+               </padding>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <Pane layoutY="74.0" prefHeight="629.0" prefWidth="620.0" styleClass="body">
+         <children>
+            <Button layoutX="174.0" layoutY="561.0" mnemonicParsing="false" onAction="#registerMedico" text="Registrar">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-search" />
+               </styleClass>
+            </Button>
+            <Button layoutX="335.0" layoutY="561.0" mnemonicParsing="false" onAction="#cancelMedico" text="Limpiar">
+               <styleClass>
+                  <String fx:value="btn" />
+                  <String fx:value="btn-remove" />
+               </styleClass>
+            </Button>
+            <JFXTextField fx:id="txtIdentidadMedico" labelFloat="true" layoutX="46.0" layoutY="48.0" prefHeight="29.0" prefWidth="519.0" promptText="Escriba el Numero de Identidad" />
+            <JFXTextField fx:id="txtNombreMedico" labelFloat="true" layoutX="46.0" layoutY="113.0" prefHeight="29.0" prefWidth="519.0" promptText="Nombre Medico" />
+            <JFXTextField fx:id="txtTelefonoMedico" labelFloat="true" layoutX="46.0" layoutY="308.0" prefHeight="29.0" prefWidth="519.0" promptText="Telefono Medico" />
+            <JFXTextField fx:id="txtApellidoMedico" labelFloat="true" layoutX="46.0" layoutY="170.0" prefHeight="29.0" prefWidth="519.0" promptText="Apellido Medico" />
+            <JFXTextField fx:id="txtDireccionMedico" labelFloat="true" layoutX="46.0" layoutY="239.0" prefHeight="29.0" prefWidth="519.0" promptText="Direccion Medico" />
+            <JFXTextField fx:id="txtEmailMedico" labelFloat="true" layoutX="46.0" layoutY="379.0" prefHeight="29.0" prefWidth="519.0" promptText="Email Medico" />
+            <JFXComboBox fx:id="cmbMedicoArea" labelFloat="true" layoutX="46.0" layoutY="445.0" prefHeight="31.0" prefWidth="519.0" promptText="Area" />
+            <Label fx:id="error_Identidad" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="257.0" layoutY="79.0" nodeOrientation="RIGHT_TO_LEFT" textAlignment="RIGHT" textFill="#a14545" />
+            <Label fx:id="error_ApellidoMedico" layoutX="255.0" layoutY="201.0" textAlignment="RIGHT" textFill="#a14545" />
+            <Label fx:id="error_DirecMedico" contentDisplay="RIGHT" layoutX="255.0" layoutY="270.0" textAlignment="RIGHT" textFill="#a14545" />
+            <Label fx:id="error_TelMedico" layoutX="255.0" layoutY="339.0" textFill="#a14545" />
+            <Label fx:id="error_EmailMedico" layoutX="255.0" layoutY="410.0" textFill="#a14545" />
+            <Label fx:id="error_AreaMedico" layoutX="255.0" layoutY="478.0" textFill="#a14545" />
+            <Label fx:id="error_NombreMedico" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="264.0" layoutY="143.0" textAlignment="RIGHT" textFill="#a14545" />
+         </children>
+      </Pane>
+   </children>
+=======
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
@@ -39,4 +103,5 @@
             </children>
         </Pane>
     </children>
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 </AnchorPane>

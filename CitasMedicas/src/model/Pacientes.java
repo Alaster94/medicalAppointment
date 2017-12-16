@@ -20,6 +20,10 @@ public class Pacientes {
     private Areas areas;
 
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     public Pacientes(String idPacientes, String nombrePaciente, String apellidoPaciente, String genero, Date fechaNacimiento, String direccion, String email, String telefono, Medico medico) {
         this.idPacientes = new SimpleStringProperty(idPacientes);
         this.nombrePaciente = new SimpleStringProperty(nombrePaciente);
@@ -32,6 +36,16 @@ public class Pacientes {
         this.medico = medico;
     }
 
+<<<<<<< HEAD
+    public Pacientes(String idPacientes, String nombrePaciente, String apellidoPaciente) {
+        this.idPacientes = new SimpleStringProperty(idPacientes);
+        this.nombrePaciente = new SimpleStringProperty(nombrePaciente);
+        this.apellidoPaciente = new SimpleStringProperty(apellidoPaciente);
+
+    }
+
+=======
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     public String getIdPacientes() {
         return idPacientes.get();
     }
@@ -140,10 +154,17 @@ public class Pacientes {
         this.areas = areas;
     }
 
+<<<<<<< HEAD
+    public int guardarPaciente(Connection connection){
+        try {
+            PreparedStatement statement =
+                    connection.prepareStatement("INSERT INTO pacientes (idPacientes, nombrePaciente, apellidoPaciente, genero, fechaNacimiento, direccion, email, telefono, medicos_idMedicos) "+
+=======
     public int guardarPaciente(Connection connection) {
         try {
             PreparedStatement statement =
                     connection.prepareStatement("INSERT INTO pacientes (idPacientes, nombrePaciente, apellidoPaciente, genero, fechaNacimiento, direccion, email, telefono, medicos_idMedicos) " +
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
                             "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
             statement.setString(1, idPacientes.get());
             statement.setString(2, nombrePaciente.get());
@@ -161,7 +182,11 @@ public class Pacientes {
         }
     }
 
+<<<<<<< HEAD
+    public int actualizarPaciente(Connection connection){
+=======
     public int actualizarPaciente(Connection connection) {
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
         try {
             PreparedStatement statement =
                     connection.prepareStatement(
@@ -185,7 +210,11 @@ public class Pacientes {
     }
 
     public static void llenarInformacionPacientes(Connection connection,
+<<<<<<< HEAD
+                                                ObservableList<Pacientes> lista){
+=======
                                                   ObservableList<Pacientes> lista) {
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(
@@ -193,7 +222,11 @@ public class Pacientes {
                             " M.idMedicos, M.nombreDoctor " +
                             "FROM pacientes P INNER JOIN medicos M ON (P.medicos_idMedicos = M.idMedicos)"
             );
+<<<<<<< HEAD
+            while(resultSet.next()){
+=======
             while (resultSet.next()) {
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
                 lista.add(
                         new Pacientes(
                                 resultSet.getString("idPacientes"),
@@ -215,7 +248,10 @@ public class Pacientes {
             e.printStackTrace();
         }
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     public static void eliminarPaciente(String idPaciente) throws SQLException, ClassNotFoundException {
         Connection connection = new DBConnection().getConnection();
         String sql = "DELETE FROM pacientes WHERE idPacientes = ?";
@@ -226,9 +262,24 @@ public class Pacientes {
             preparedStatement.close();
         } catch (SQLException e) {
             e.printStackTrace();
+<<<<<<< HEAD
+            throw new  RuntimeException(e);
+=======
             throw new RuntimeException(e);
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
         }
 
     }
 
+<<<<<<< HEAD
+    @Override
+    public String toString(){
+        //return idPacientes.get();
+        return idPacientes.get() + " ("+nombrePaciente.get()+"-"+apellidoPaciente.get()+")";
+    }
+
+
+
+=======
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 }

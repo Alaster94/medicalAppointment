@@ -49,7 +49,10 @@ public class usuarioController implements Initializable {
     @FXML    private JFXTextField txtIdUsuario;
     @FXML    private JFXTextField detNombreUsuario;
     @FXML    private JFXTextField txtSearchUsuario;
+<<<<<<< HEAD
+=======
 
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     //Table
     @FXML    private TableView<Usuarios> usuarios;
     @FXML    private TableColumn<Usuarios, String> idUsuario;
@@ -85,10 +88,13 @@ public class usuarioController implements Initializable {
     private ObservableList<Usuarios> listaUsuario;
     private DBConnection conexion;
     private Usuarios usuarioSeleccionado;
+<<<<<<< HEAD
+=======
     private Medico pacienteDetalle;
     private Connection connection;
     private PreparedStatement pst = null;
     private ResultSet rs = null;
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -220,6 +226,10 @@ public class usuarioController implements Initializable {
         Stage paciente = new Stage();
         paciente.setResizable(false);
         try {
+<<<<<<< HEAD
+            btnNew.getScene().getWindow().hide();
+=======
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
             Parent root = FXMLLoader.load(getClass().getResource("../view/nuevoUsuario.fxml"));
             paciente.initModality(Modality.APPLICATION_MODAL);
             paciente.initOwner((Stage) ((Button) event.getSource()).getScene().getWindow());

@@ -25,6 +25,14 @@
             <top>
                 <Pane prefHeight="116.0" prefWidth="1134.0" BorderPane.alignment="CENTER">
                     <children>
+<<<<<<< HEAD
+                        <ImageView fitHeight="223.0" fitWidth="296.0" layoutX="-20.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../icon/logo.png" />
+                            </image>
+                        </ImageView>
+                        <Label layoutX="372.0" layoutY="77.0" styleClass="title-text" text="GESTIONAR MEDICOS" />
+=======
                         <ImageView fitHeight="102.0" fitWidth="113.0" layoutX="14.0" layoutY="11.0" pickOnBounds="true"
                                    preserveRatio="true">
                             <image>
@@ -32,6 +40,7 @@
                             </image>
                         </ImageView>
                         <Label layoutX="363.0" layoutY="58.0" styleClass="title-text" text="GESTIONAR MEDICOS"/>
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
                     </children>
                 </Pane>
             </top>

@@ -12,10 +12,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Main extends Application {
-    private static final String CONNECTION_STRING = "jdbc:mysql://127.0.0.1:3306/medicalAppointment";
-    private static final String USUARIO = "root";
-    private static final String CLAVE = "";
-    private static Connection conexion;
+//    private static final String CONNECTION_STRING = "jdbc:mysql://127.0.0.1:3306/medicalAppointment";
+//    private static final String USUARIO = "root";
+//    private static final String CLAVE = "";
+//    private static Connection conexion;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -25,15 +25,10 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
 
-//        primaryStage.setResizable(false);//Ocultar la opcion de maximizar
-//        Parent root = FXMLLoader.load(getClass().getResource("../view/inicio.fxml"));
-//        Scene scene = new Scene(root);
-//        String css = Main.class.getResource("/style/MainStyle.css").toExternalForm();
-//        scene.getStylesheets().add(css);
-//        primaryStage.setScene(scene);
-//        primaryStage.show();
     }
 
+<<<<<<< HEAD
+=======
     private void abrirConexion() {
         try {
             conexion = DriverManager.getConnection(CONNECTION_STRING, USUARIO, CLAVE);
@@ -51,6 +46,7 @@ public class Main extends Application {
     }
 
 
+>>>>>>> 8e8c425d249a008ccb8255f8913edb8383b32d92
     public static void main(String[] args) {
         launch(args);
     }
